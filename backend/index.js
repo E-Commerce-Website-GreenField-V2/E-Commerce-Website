@@ -4,7 +4,7 @@ const PORT = 8000;
 const app = express();
 const cors = require("cors");
 const productsRouter = require('./routes/ProductRoutes.js');
-const usersRouter = require('./routes/ProductRoutes.js');
+const usersRouter = require('./routes/userRoutes.js');
 const {authenticateUser} = require ('./middelwares/auth.js')
 const authRoute = require('./routes/authRoute.js')
 
@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/../client/dist"));
 app.use("/auth", authRoute);
 
 //all routes below this middelware are secure
-app.use(authenticateUser);
+// app.use(authenticateUser);
 
 app.use('/products', productsRouter); 
 app.use('/users', usersRouter);

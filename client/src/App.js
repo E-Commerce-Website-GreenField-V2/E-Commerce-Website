@@ -9,6 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/account" element={<Account />} />
+        <Route path="/ProductDetails" element={<ProductDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
