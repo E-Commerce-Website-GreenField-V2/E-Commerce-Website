@@ -5,8 +5,8 @@ const app = express();
 const cors = require("cors");
 const productsRouter = require('./routes/ProductRoutes.js');
 const usersRouter = require('./routes/ProductRoutes.js');
-const authMiddelware = require ('./middelwares/auth.js')
-const authRoute = require('./routes/')
+const {authenticateUser} = require ('./middelwares/auth.js')
+const authRoute = require('./routes/authRoute.js')
 
 app.use(express.json());
 
@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/../client/dist"));
 app.use("/auth", authRoute);
 
 //all routes below this middelware are secure
-app.use(authMiddelware);
+app.use(authenticateUser);
 
 app.use('/products', productsRouter); 
 app.use('/users', usersRouter);
