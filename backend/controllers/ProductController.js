@@ -5,7 +5,6 @@ const express = require("express");
 const Product = require("../database/models/productsModel.js");
 
 const getAllProducts = async (req, res) => {
-  console.log("pro",Product);
   try {
     const products = await Product.findAll();
     res.json(products);
