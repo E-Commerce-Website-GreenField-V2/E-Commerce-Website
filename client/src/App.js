@@ -1,12 +1,16 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductDetailsPage from "./components/ProductDetails.jsx";
+import Account from "./components/Account.jsx";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <ProductDetailsPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/account" element={<Account />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

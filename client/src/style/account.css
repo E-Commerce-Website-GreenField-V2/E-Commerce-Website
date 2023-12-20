@@ -1,0 +1,626 @@
+@import url("../global.css");
+
+.shopnow,
+.summer-sale-for {
+  position: relative;
+  font-size: 0.88em;
+}
+.summer-sale-for {
+  line-height: 1.5em;
+  display: inline-block;
+  width: 33.86em;
+  height: 1.29em;
+  flex-shrink: 0;
+}
+.shopnow {
+  text-decoration: underline;
+  line-height: 1.71em;
+  font-weight: 600;
+  text-align: center;
+}
+.summer-sale-for-all-swim-suits-parent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+.english {
+  position: relative;
+  font-size: 0.88em;
+  line-height: 1.5em;
+}
+.dropdown-icon {
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.english-parent,
+.frame-parent {
+  display: flex;
+  flex-direction: row;
+}
+.english-parent {
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.31em;
+}
+.frame-parent {
+  position: absolute;
+  top: 0.75em;
+  right: 8.5em;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14.44em;
+}
+.exclusive,
+.top-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top-header {
+  background-color: #000;
+  width: 90em;
+  height: 3em;
+  overflow: hidden;
+  color: #fafafa;
+}
+.exclusive {
+  font-size: 1.5em;
+  letter-spacing: 0.03em;
+  line-height: 1em;
+}
+.logo {
+  position: relative;
+  width: 7.38em;
+  height: 1.5em;
+}
+.home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.header1,
+.header2 {
+  position: relative;
+  width: 3em;
+  height: 1.5em;
+}
+.header2 {
+  width: 4.13em;
+}
+.about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+.header4 {
+  position: relative;
+  width: 3.81em;
+  height: 1.5em;
+}
+.header-parent,
+.logo-parent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.header-parent {
+  gap: 3em;
+  text-align: center;
+  font-family: Poppins;
+}
+.logo-parent {
+  gap: 10em;
+}
+.what-are-you {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  opacity: 0.5;
+}
+.search-component-set,
+.what-are-you-looking-for-parent {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.what-are-you-looking-for-parent {
+  flex-direction: row;
+  gap: 2.13em;
+}
+.search-component-set {
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  flex-direction: column;
+  padding: 0.44em 0.75em 0.44em 1.25em;
+}
+.wishlist-icon {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cart1-with-buy,
+.user-icon,
+.wishlist-icon {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  object-fit: cover;
+}
+.user-icon {
+  border-radius: 47px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.header,
+.search-component-set-parent,
+.wishlist-parent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+.header,
+.search-component-set-parent {
+  justify-content: flex-start;
+  gap: 1.5em;
+  font-family: Poppins;
+}
+.header {
+  position: absolute;
+  top: 5.5em;
+  left: 8.44em;
+  gap: 8.13em;
+  font-family: Inter;
+}
+.account-child {
+  position: absolute;
+  top: 8.88em;
+  left: 0;
+  width: 90em;
+  height: 0;
+  object-fit: cover;
+}
+.account1 {
+  position: relative;
+  font-size: 0.88em;
+  line-height: 1.5em;
+  opacity: 0.5;
+}
+.roadmap-child {
+  position: relative;
+  width: 0.38em;
+  height: 0.73em;
+  object-fit: contain;
+}
+.nothing1,
+.roadmap-item {
+  position: relative;
+  display: none;
+}
+.roadmap-item {
+  width: 0.38em;
+  height: 0.73em;
+  object-fit: contain;
+}
+.nothing1 {
+  font-size: 0.88em;
+  line-height: 1.5em;
+}
+.roadmap {
+  position: absolute;
+  top: 13.88em;
+  left: 8.44em;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75em;
+}
+.md-rimel {
+  color: #db4444;
+}
+.welcome-md-rimel-container {
+  position: absolute;
+  top: 15.86em;
+  left: 83.07em;
+  font-size: 0.88em;
+  line-height: 1.5em;
+}
+.manage-my-account,
+.my-orders,
+.my-wishlist {
+  position: absolute;
+  top: 20.19em;
+  left: 8.44em;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+.my-orders,
+.my-wishlist {
+  top: 29.69em;
+}
+.my-wishlist {
+  top: 36.69em;
+  display: inline-block;
+  width: 5.81em;
+  height: 1.44em;
+}
+.address-book,
+.my-profile {
+  position: relative;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.my-profile {
+  color: #db4444;
+}
+.address-book {
+  opacity: 0.5;
+}
+.my-profile-parent,
+.my-returns-parent {
+  position: absolute;
+  top: 22.69em;
+  left: 10.63em;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+.my-returns-parent {
+  top: 32.19em;
+}
+.edit-your-profile {
+  position: absolute;
+  top: 2em;
+  left: 4em;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  font-weight: 500;
+  color: #db4444;
+}
+.first-name {
+  position: relative;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.place-to-info-box {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+.md {
+  position: absolute;
+  top: 0.81em;
+  left: 1em;
+  font-size: 1em;
+  line-height: 1.5em;
+  opacity: 0.5;
+}
+.placebox-info {
+  position: relative;
+  width: 20.63em;
+  height: 3.13em;
+}
+.first-name-parent,
+.frame-container,
+.frame-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.first-name-parent {
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.frame-container,
+.frame-group {
+  position: absolute;
+  top: 5.25em;
+  left: 5em;
+  flex-direction: row;
+  gap: 3.13em;
+}
+.frame-container {
+  top: 11.88em;
+}
+.placebox-info4 {
+  position: relative;
+  width: 44.38em;
+  height: 3.13em;
+}
+.frame-div {
+  position: absolute;
+  top: 18.5em;
+  left: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1em;
+}
+.view-all-products {
+  position: relative;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+.button,
+.cancel-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.button {
+  border-radius: 4px;
+  background-color: #db4444;
+  flex-shrink: 0;
+  justify-content: center;
+  padding: 1em 3em;
+  color: #fafafa;
+}
+.cancel-parent {
+  position: absolute;
+  top: calc(50% + 219px);
+  right: 5em;
+  justify-content: flex-start;
+  gap: 2em;
+}
+.edit-your-profile-parent {
+  position: absolute;
+  top: 20.19em;
+  left: 27.13em;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 1px 13px rgba(0, 0, 0, 0.05);
+  width: 54.38em;
+  height: 39.38em;
+  overflow: hidden;
+}
+.icon-copyright,
+.underline-icon {
+  position: relative;
+  object-fit: cover;
+}
+.underline-icon {
+  max-height: 100%;
+  width: 90em;
+  opacity: 0.5;
+}
+.icon-copyright {
+  width: 1.25em;
+  height: 1.25em;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.icon-copyright-parent {
+  flex-shrink: 0;
+  flex-direction: row;
+  gap: 0.38em;
+}
+.frame-wrapper,
+.icon-copyright-parent,
+.underline-parent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame-wrapper {
+  flex-shrink: 0;
+  flex-direction: row;
+  opacity: 0.6;
+}
+.underline-parent {
+  position: absolute;
+  top: 23.5em;
+  left: 0;
+  flex-direction: column;
+  gap: 1em;
+  opacity: 0.4;
+}
+.subscribe {
+  position: relative;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  font-weight: 500;
+  font-family: Poppins;
+}
+.logo-group {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.5em;
+}
+.enter-your-email,
+.get-10-off {
+  position: relative;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.get-10-off {
+  font-family: Poppins;
+}
+.enter-your-email {
+  opacity: 0.4;
+}
+.frame-parent2,
+.send-mail {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.send-mail {
+  border-radius: 4px;
+  border: 1.5px solid #fafafa;
+  box-sizing: border-box;
+  width: 13.56em;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75em 0 0.75em 1em;
+  gap: 2em;
+  font-family: Poppins;
+}
+.frame-parent2 {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+  font-family: Inter;
+}
+.support {
+  position: relative;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  font-weight: 500;
+}
+.bijoy-sarani-dhaka {
+  position: relative;
+  font-size: 1em;
+  line-height: 1.5em;
+  white-space: pre-wrap;
+  display: inline-block;
+  width: 10.94em;
+}
+.bijoy-sarani-dhaka-dh-1515-parent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1em;
+}
+.save-3-with {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  font-weight: 500;
+  opacity: 0.7;
+}
+.qrcode-1-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(1.066);
+}
+.wrapper-qrcode-1 {
+  position: absolute;
+  top: 0.13em;
+  left: 0.13em;
+  width: 4.75em;
+  height: 4.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.googleplay-icon,
+.qr-code {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.qr-code {
+  background-color: #000;
+  width: 5em;
+  height: 5em;
+}
+.googleplay-icon {
+  width: 6.88em;
+  height: 2.5em;
+  object-fit: cover;
+}
+.download-appstore-icon {
+  position: absolute;
+  top: 0.19em;
+  left: 0.19em;
+  border-radius: 4px;
+  width: 6.5em;
+  height: 2.13em;
+  object-fit: cover;
+}
+.appstore {
+  position: relative;
+  background-color: #000;
+  width: 6.88em;
+  height: 2.5em;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.googleplay-parent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.25em;
+}
+.frame-parent1,
+.icon-facebook-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.icon-facebook-parent {
+  flex-shrink: 0;
+  justify-content: flex-start;
+  gap: 1.5em;
+}
+.frame-parent1 {
+  position: absolute;
+  top: 5em;
+  left: 8.44em;
+  justify-content: center;
+  gap: 5.44em;
+  color: #fafafa;
+}
+.footer {
+  position: absolute;
+  top: 68.31em;
+  left: 0;
+  background-color: #000;
+  width: 90em;
+  height: 27.5em;
+  overflow: hidden;
+  color: #fff;
+}
+.account {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 95.81em;
+  text-align: left;
+  color: #000;
+  font-family: Poppins;
+}
