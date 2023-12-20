@@ -1,29 +1,37 @@
-const User = require("../database/models/userModel.js");
-const wishList = require("../database/models/wishListModel.js");
+const { User, WishList } = require("../database/models/wishListModel.js");
 
 const addToWishList = async (req, res) => {
   const { id } = req.user;
   const { prodId } = req.body;
   try {
-    const user = User.findById(id);
-    const alreadyAdded = user.wishList.find((id) => id.toString() === prodId);
+    const user = await User.findByPk(id);
+
+    const alreadyAdded = await WishList.findOne({
+      where: {
+        UserId: id,
+      },
+    });
+
     if (alreadyAdded) {
-      let user = await User.findByIdAndUpdate(
-        id,
-        {
-          $push: { wishList: prodId },
-        },
-        {
-          new: true,
-        }
-      );
-      res.json(user);
+      res.status(400).json({ message: "Product already in wishlist" });
     } else {
+      await WishList.create({
+        UserId: id,
+        ProductId: prodId,
+      });
+
+      const updatedUser = await User.findByPk(id, {
+        include: [WishList],
+      });
+
+      res.json(updatedUser);
     }
   } catch (err) {
-    throw new Error(err);
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
+
 module.exports = {
   addToWishList,
 };
