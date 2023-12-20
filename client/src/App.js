@@ -6,6 +6,7 @@ import Account from "./components/user/Account.jsx";
 import "./App.css";
 import Contact from "./components/static/Contact.jsx";
 import About from "./components/static/About.jsx";
+import NotFound from "./components/static/NotFound.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/ProductDetails" element={<ProductDetailsPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
