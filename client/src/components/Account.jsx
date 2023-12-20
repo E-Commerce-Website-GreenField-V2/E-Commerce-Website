@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useContext } from "react-router-dom";
+import axios from "axios";
 import "../style/account.css";
 
 const Account = () => {
@@ -7,10 +8,45 @@ const Account = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [adress, setAdress] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const navigate = useNavigate();
+
+  // const updateUser = async () => {
+  //   try {
+  //     const { userId } = useContext();
+  //     const updateUserEndpoint = `http://localhost:8000/users/${userId}`;
+
+  //     const updatedUserData = {
+  //       fullName: `${firstName} ${lastName}`,
+  //       email: email,
+  //     };
+  //     if (newPassword) {
+  //       updatedUserData.password = newPassword;
+  //     }
+
+  //     const response = await axios.put(updateUserEndpoint, updatedUserData);
+  //     console.log("User updated:", response.data);
+  //   } catch (error) {
+  //     console.error("Error updating user:", error);
+  //   }
+  // };
+  const handleNewPasswordChange = (e) => {
+    const { value } = e.target;
+    setNewPassword(value);
+    console.log("New Password Changed:", value);
+  };
 
   const onAboutTextClick = () => {
     navigate("/about");
+  };
+  const GoHome = () => {
+    navigate("/home");
+  };
+  const goContact = () => {
+    navigate("/contact");
+  };
+  const goSignUp = () => {
+    navigate("/signup");
   };
 
   const handleFirstNameChange = (e) => {
@@ -59,10 +95,14 @@ const Account = () => {
           </div>
           <div className="header-parent">
             <div className="header1">
-              <div className="home">Home</div>
+              <div className="home" onClick={GoHome}>
+                Home
+              </div>
             </div>
             <div className="header2">
-              <div className="home">Contact</div>
+              <div className="home" onClick={goContact}>
+                Contact
+              </div>
             </div>
             <div className="header1">
               <div className="about" onClick={onAboutTextClick}>
@@ -70,7 +110,9 @@ const Account = () => {
               </div>
             </div>
             <div className="header4">
-              <div className="home">Sign Up</div>
+              <div className="home" onClick={goSignUp}>
+                Sign Up
+              </div>
             </div>
           </div>
         </div>
@@ -94,7 +136,9 @@ const Account = () => {
       </div>
       <img className="account-child" alt="" src="/line-3@2x.png" />
       <div className="roadmap">
-        <div className="account1">Home</div>
+        <div className="account1" onClick={GoHome}>
+          Home
+        </div>
         <img className="roadmap-child" alt="" src="/line-13@2x.png" />
         <div className="english">My Account</div>
         <img className="roadmap-item" alt="" src="/line-14@2x.png" />
@@ -193,9 +237,10 @@ const Account = () => {
         </div>
         <div className="cancel-parent">
           <div className="first-name">Cancel</div>
-          <div className="button">
-            <button className="view-all-products">Save Changes</button>
-          </div>
+          <div className="button"></div>
+          <button className="view-all-products" onClick={updateUser}>
+            Save Changes
+          </button>
         </div>
       </div>
     </div>
