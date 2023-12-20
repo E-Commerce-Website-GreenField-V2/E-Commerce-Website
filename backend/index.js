@@ -6,12 +6,12 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-const productsRouter = require('./routes/ProductRoutes.js');
-const usersRouter = require('./routes/ProductRoutes.js');
+const productsRouter = require("./routes/ProductRoutes.js");
+const usersRouter = require("./routes/UsersRoutes.js");
 
 // Mount your route files
-app.use('/products', productsRouter); // Mount at /products
-app.use('/users', usersRouter);
+app.use("/products", productsRouter); // Mount at /products
+app.use("/users", usersRouter);
 app.use(cors());
 app.use(express.static(__dirname + "/../client/dist"));
 //auth routs
