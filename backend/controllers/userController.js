@@ -1,11 +1,14 @@
 
-const { User } = require('../database/models/userModel')
+const User  = require('../database/models/userModel.js')
+const bcrypt = require('bcrypt')
 
 
 const getAllUsers = async (req, res) => {
+    console.log("user");
   try {
     const users = await User.findAll();
-    res.status(200).json(users);
+    console.log("users", users);
+    res.status(200).json({users});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error' });
@@ -32,8 +35,10 @@ const getUserById = async (req, res) => {
 
 
 const createUser = async (req, res) => {
-  const { fullName, email, userPassword } = req.body;
+  const { fullName, email, userPassword, role } = req.body;
+//   console.log("req",req.body);
   const hashedPassword = await bcrypt.hash(userPassword, 10);
+//   console.log("user",User);
 
   try {
     const newUser = await User.create({

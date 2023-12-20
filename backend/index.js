@@ -4,7 +4,7 @@ const PORT = 8000;
 const app = express();
 const cors = require("cors");
 const productsRouter = require('./routes/ProductRoutes.js');
-const usersRouter = require('./routes/ProductRoutes.js');
+const usersRouter = require('./routes/userRoutes.js');
 const {authenticateUser} = require ('./middelwares/auth.js')
 const authRoute = require('./routes/authRoute.js')
 
