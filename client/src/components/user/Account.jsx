@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useContext } from "react-router-dom";
 import axios from "axios";
-import "../style/account.css";
+import "../../style/account.css";
 
 const Account = () => {
   const [firstName, setFirstName] = useState("");
@@ -238,9 +238,9 @@ const Account = () => {
         <div className="cancel-parent">
           <div className="first-name">Cancel</div>
           <div className="button"></div>
-          <button className="view-all-products" onClick={updateUser}>
+          {/* <button className="view-all-products" onClick={updateUser}>
             Save Changes
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
