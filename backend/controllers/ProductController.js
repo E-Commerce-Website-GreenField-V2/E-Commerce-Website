@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 // routes/products.js
-=======
-y// routes/products.js
->>>>>>> louay
-const express = require('express');
-
+const express = require("express");
 
 // controllers/productsController.js
-const Product = require('../database/models/productsModel.js');
+const Product = require("../database/models/productsModel.js");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -15,7 +10,7 @@ const getAllProducts = async (req, res) => {
     res.json(products);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -26,13 +21,13 @@ const getProductById = async (req, res) => {
     const product = await Product.findByPk(productId);
 
     if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
+      return res.status(404).json({ message: "Product not found" });
     }
 
     res.json(product);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -40,4 +35,3 @@ module.exports = {
   getAllProducts,
   getProductById,
 };
-
