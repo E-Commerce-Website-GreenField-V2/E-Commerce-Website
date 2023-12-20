@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const generateToken = (userId, userName) => {
-  const expiresIn = 60 * 60 * 24 * 3; // 3 day
+  const expiresIn = 60 * 60 * 24 * 7; // 7 day
   return jwt.sign({ userId, userName }, 'secretKey', { expiresIn: expiresIn });
 };
 
