@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // routes/products.js
+=======
+y// routes/products.js
+>>>>>>> louay
 const express = require('express');
 
 
