@@ -18,7 +18,8 @@ app.use(express.static(__dirname + "/../client/dist"));
 app.use("/auth", authRoute);
 
 //all routes below this middelware are secure
-// app.use(authenticateUser);
+app.use(authenticateUser);
+
 app.use("/categories", categoryRoutes);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
