@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/authentification/Login.jsx";
+import Register from "./components/authentification/SignUp.jsx";
 import ProductDetailsPage from "./components/products/ProductDetails.jsx";
 import Account from "./components/user/Account.jsx";
 import "./App.css";
@@ -11,6 +12,7 @@ import NotFound from "./components/static/NotFound.jsx";
 import { AuthProvider } from "./Context/authContext.jsx";
 import ManageAccount from "./components/Account/ManageAccount/ManageAccount.js";
 import MyAccount from "./components/Account/MyAccount/MyAccount.js";
+import Shop from "../src/components/Shop/Shop.js";
 // import Header from "./components/Header/Header.js";
 // import Footer from "./components/Footer/Footer";
 // import Home from "./routes/Home.jsx";
@@ -26,13 +28,13 @@ function App() {
             <Route path="me" element={<MyAccount />} />
             <Route path="manage" element={<ManageAccount />} />
             <Route path="login" element={<Login />} />
-            {/* <Route path="register" element={<Register />}/> */}
-            {/* <Route path="*" element={<Login />}/>  */}
+            <Route path="register" element={<Register />} />
+            <Route path="*" element={<Login />} />
           </Route>
-          {/* <Route path="/shop" element={<Shop />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/category">
-            <Route path=":id" element={<CategoryView />} />
-          </Route> */}
+            {/* <Route path=":id" element={<CategoryView />} /> */}
+          </Route>
           {/* <Route path="/item">
             <Route path="/item/men">
               <Route path=":id" element={<ItemView />} />
