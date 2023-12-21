@@ -13,6 +13,7 @@ import { AuthProvider } from "./Context/authContext.jsx";
 import ManageAccount from "./components/Account/ManageAccount/ManageAccount.js";
 import MyAccount from "./components/Account/MyAccount/MyAccount.js";
 import Shop from "../src/components/Shop/Shop.js";
+import CategoryView from "../src/routes/CategoryView.jsx";
 // import Header from "./components/Header/Header.js";
 // import Footer from "./components/Footer/Footer";
 // import Home from "./routes/Home.jsx";
@@ -33,7 +34,7 @@ function App() {
           </Route>
           <Route path="/shop" element={<Shop />} />
           <Route path="/category">
-            {/* <Route path=":id" element={<CategoryView />} /> */}
+            <Route path=":id" element={<CategoryView />} />
           </Route>
           {/* <Route path="/item">
             <Route path="/item/men">
