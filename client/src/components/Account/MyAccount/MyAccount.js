@@ -1,5 +1,5 @@
 import Account from "../Account";
-import "../MyAccount/MyAccount.css";
+import "./MyAccount.css";
 import { Link } from "react-router-dom";
 
 const MyAccount = () => {
