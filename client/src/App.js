@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-// import Login from "./components/authentification/Login.jsx";
+import Login from "./components/authentification/Login.jsx";
 import ProductDetailsPage from "./components/products/ProductDetails.jsx";
 import Account from "./components/user/Account.jsx";
 import "./App.css";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/account">
             <Route path="me" element={<MyAccount />} />
             <Route path="manage" element={<ManageAccount />} />
-            {/* <Route path="login" element={<Login />}/> */}
+            <Route path="login" element={<Login />} />
             {/* <Route path="register" element={<Register />}/> */}
             {/* <Route path="*" element={<Login />}/>  */}
           </Route>
