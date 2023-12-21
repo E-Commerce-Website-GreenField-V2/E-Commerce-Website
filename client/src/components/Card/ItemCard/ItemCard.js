@@ -14,10 +14,12 @@ const ItemCard = (props) => {
 
   const handleAddToWishList = () => {
     wishItemsContext.addItem(props.item);
+    // console.log(props.item);
   };
 
   const handleAddToCart = () => {
     cartItemsContext.addItem(props.item, 1);
+    // console.log(props.item);
   };
 
   return (
