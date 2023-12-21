@@ -16,7 +16,8 @@ import Shop from "../src/components/Shop/Shop.js";
 import CategoryView from "../src/routes/CategoryView.jsx";
 // import Header from "./components/Header/Header.js";
 // import Footer from "./components/Footer/Footer";
-// import Home from "./routes/Home.jsx";
+import Home from "./routes/Home.jsx";
+import ItemView from "./routes/ItemView.jsx";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Router>
         {/* <Header /> */}
         <Routes>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
           <Route path="/account">
             <Route path="me" element={<MyAccount />} />
             <Route path="manage" element={<ManageAccount />} />
@@ -36,7 +37,7 @@ function App() {
           <Route path="/category">
             <Route path=":id" element={<CategoryView />} />
           </Route>
-          {/* <Route path="/item">
+          <Route path="/item">
             <Route path="/item/men">
               <Route path=":id" element={<ItemView />} />
             </Route>
@@ -49,7 +50,7 @@ function App() {
             <Route path="/item/featured">
               <Route path=":id" element={<ItemView />} />
             </Route>
-          </Route> */}
+          </Route>
           {/* <Route path="/wishlist" element={<Wishlist />} /> */}
           {/* <Route path="/search/*" element={<SearchView />} /> */}
 
