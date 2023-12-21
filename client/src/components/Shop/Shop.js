@@ -16,9 +16,9 @@ const Shop = () => {
     axios
       .get("https://shema-backend.vercel.app/api/items")
       .then((res) => {
-        setMenItems(res.data.filter((item) => item.category === "men"));
-        setKidsItems(res.data.filter((item) => item.category === "kids"));
-        setWomenItems(res.data.filter((item) => item.category === "women"));
+        setMenItems(res.data.filter((item) => item.name === "men"));
+        setKidsItems(res.data.filter((item) => item.name === "kids"));
+        setWomenItems(res.data.filter((item) => item.name === "women"));
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -30,7 +30,7 @@ const Shop = () => {
       {loading && (
         <ReactLoading
           type="balls"
-          color="#FFE26E"
+          color="#6c757d"
           height={100}
           width={100}
           className="container h-100 w-10 justify-self-center align-self-center m-auto"

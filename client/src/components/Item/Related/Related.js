@@ -10,15 +10,15 @@ const Related = (props) => {
 
   useEffect(() => {
     axios
-      .get("https://shema-backend.vercel.app/api/items")
+      .get("http://localhost:8000/categories/")
       .then((res) => {
-        setMenItems(res.data.filter((item) => item.category === "men"));
-        setKidsItems(res.data.filter((item) => item.category === "kids"));
-        setWomenItems(res.data.filter((item) => item.category === "women"));
+        setMenItems(res.data.filter((item) => item.name === "men"));
+        setKidsItems(res.data.filter((item) => item.name === "kids"));
+        setWomenItems(res.data.filter((item) => item.name === "women"));
       })
       .catch((err) => console.log(err));
   }, []);
-
+  console.log(menItems);
   return (
     <div className="related__products">
       <div className="related__header__container">
@@ -30,13 +30,13 @@ const Related = (props) => {
       <div className="related__card__container">
         <div className="related__product__card">
           {menItems &&
-            props.category === "men" &&
+            props.name === "men" &&
             menItems.map((item) => <RelatedCard item={item} />)}
           {womenItems &&
-            props.category === "women" &&
+            props.name === "women" &&
             womenItems.map((item) => <RelatedCard item={item} />)}
           {kidsItems &&
-            props.category === "kids" &&
+            props.name === "kids" &&
             kidsItems.map((item) => <RelatedCard item={item} />)}
         </div>
       </div>
