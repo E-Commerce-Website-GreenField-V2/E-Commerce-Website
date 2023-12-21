@@ -21,6 +21,7 @@ import Header from "./components/Header/Header.js";
 import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
 import Wishlist from "./components/Wishlist/index.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
