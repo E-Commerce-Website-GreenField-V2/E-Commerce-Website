@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/items")
+      .get("http://localhost:8000/api/items")
       .then((res) => setFeaturedItems(res.data))
       .catch((err) => console.log(err));
 

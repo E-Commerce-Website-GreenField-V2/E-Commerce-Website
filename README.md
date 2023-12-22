@@ -1,5 +1,5 @@
 
-# MERN E-Commerce-Website
+# E-Commerce-Website with React and Sequelize
 
 <code>Currently under construction for additional features</code>
 
