@@ -1,8 +1,14 @@
 import Account from "../Account";
 import "./MyAccount.css";
 import { Link } from "react-router-dom";
+import { useUserId } from "../../../Context/userContext.js";
 
 const MyAccount = () => {
+
+  const {userId} = useUserId()
+  console.log("ID",userId);
+
+
   return (
     <Account>
       <div className="order__history__container">

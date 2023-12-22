@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../../Context/authContext.jsx';
+import { useUserId } from '../../../Context/userContext.js'
 import './LoginCard.css';
 
 const LoginCard = () => {
   const { setToken } = useAuth();
+  const { setUserId } = useUserId();
+  // const { userId } = useUserId();
+  // const {userId} = useUserId()
+  console.log("setusser",setUserId);
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,6 +31,8 @@ const LoginCard = () => {
 
       if (userId && token) {
         setToken(token);
+        setUserId(userId);
+        // console.log(userId);
         setErrorMessage("");
         setLoading(false);
         navigate(`/`);
