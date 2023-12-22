@@ -12,6 +12,7 @@ import NotFound from "./components/static/NotFound.jsx";
 import { AuthProvider } from "./Context/authContext.jsx";
 import WishItemsProvider from "./Context/WishItemsProvider.js";
 import CartItemsProvider from "./Context/CartItemsProvider.js";
+import { UserIdProvider } from './Context/userContext.js'
 import ManageAccount from "./components/Account/ManageAccount/ManageAccount.js";
 import MyAccount from "./components/Account/MyAccount/MyAccount.js";
 import Shop from "../src/components/Shop/Shop.js";
@@ -29,6 +30,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <AuthProvider>
+       <UserIdProvider>
       <CartItemsProvider>
         <WishItemsProvider>
           <Router>
@@ -76,6 +78,7 @@ function App() {
           </Router>
         </WishItemsProvider>
       </CartItemsProvider>
+      </UserIdProvider>
     </AuthProvider>
   );
 }
