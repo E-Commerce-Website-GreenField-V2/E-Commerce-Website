@@ -17,6 +17,8 @@ import MyAccount from "./components/Account/MyAccount/MyAccount.js";
 import Shop from "../src/components/Shop/Shop.js";
 import CategoryView from "../src/routes/CategoryView.jsx";
 import Header from "./components/Header/Header.js";
+import Admin from "../src/components/Admin/Admin.jsx";
+
 import Footer from "./components/Footer/Footer";
 import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
@@ -62,10 +64,13 @@ function App() {
 
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
+              {/* <Route path="*" element={<NotFound />} /> */}
+            </Routes>
+
+            <Routes>
+              <Route path="/admin" element={<Admin />} />
             </Routes>
             <Footer />
-            <Routes>{/* <Route path="/admin" element={<Admin />} /> */}</Routes>
           </Router>
         </WishItemsProvider>
       </CartItemsProvider>
