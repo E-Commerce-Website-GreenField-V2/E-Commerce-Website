@@ -1,13 +1,32 @@
-// routes/products.js
+
 const express = require("express");
 
-// controllers/productsController.js
 const Product = require("../database/models/productsModel.js");
+const Category  = require('../database/models/categoryModel.js');
+const getProductsByCategory = require ('./helperFunction/getProductByCategory.js')
 
 const getAllProducts = async (req, res) => {
   try {
     const products = await Product.findAll();
     res.json(products);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const getProductsByCategoryController = async (req, res) => {
+  const categoryId = req.params.categoryId; 
+
+  try {
+
+    const categoryProducts = await getProductsByCategory(categoryId);
+
+    if (categoryProducts.error) {
+      return res.status(404).json({ message: categoryProducts.error });
+    }
+
+    res.json(categoryProducts);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -30,6 +49,30 @@ const getProductById = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// const getProductsByCategory = async (req, res) => {
+//   try {
+//     const category = await Category.findOne({
+//       where: { name: categoryName },
+//       include: [{ model: Product, through: 'ProductsHasCategory' }],
+//     });
+
+//     if (!category) {
+//       // Handle case where the category doesn't exist
+//       return { error: 'Category not found' };
+//     }
+
+//     // Access the products associated with the category
+//     const products = category.Products;
+
+//     return products;
+//   } catch (error) {
+//     // Handle any errors that occur during the database query
+//     console.error('Error fetching products by category:', error);
+//     return { error: 'Internal server error' };
+//   }
+// }
+
 const createProduct = async (req, res) => {
   try {
     // Assuming that the request body contains the necessary fields for creating a product
@@ -89,6 +132,7 @@ const deleteProduct = async (req, res) => {
 };
 
 module.exports = {
+  getProductsByCategoryController,
   getAllProducts,
   getProductById,
   createProduct,

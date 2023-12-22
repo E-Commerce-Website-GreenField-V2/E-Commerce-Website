@@ -7,18 +7,14 @@ import ReactLoading from "react-loading";
 
 const Shop = () => {
   TabTitle("Shop");
-  const [menItems, setMenItems] = useState();
-  const [womenItems, setWomenItems] = useState();
-  const [kidsItems, setKidsItems] = useState();
+  const [categories, setCategories] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("https://shema-backend.vercel.app/api/items")
+      .get("http://localhost:8000/categories/")
       .then((res) => {
-        setMenItems(res.data.filter((item) => item.category === "men"));
-        setKidsItems(res.data.filter((item) => item.category === "kids"));
-        setWomenItems(res.data.filter((item) => item.category === "women"));
+        setCategories(res.data)
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -36,11 +32,9 @@ const Shop = () => {
           className="container h-100 w-10 justify-self-center align-self-center m-auto"
         />
       )}
-      {menItems && <ShopCategory name="Men" key="men" items={menItems} />}
-      {womenItems && (
-        <ShopCategory name="Women" key="women" items={womenItems} />
-      )}
-      {kidsItems && <ShopCategory name="Kids" key="kids" items={kidsItems} />}
+      {categories && categories.map((category) => (
+        <ShopCategory key={category.id} name={category.name} category={category} />
+      ))}
     </div>
   );
 };

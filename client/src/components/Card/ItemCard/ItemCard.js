@@ -6,19 +6,23 @@ import { IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { WishItemsContext } from "../../../Context/WishItemsContext";
+import axios from "axios";
 
-const ItemCard = (props) => {
+const ItemCard = ({product}) => {
   const [isHovered, setIsHovered] = useState(false);
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
+  //props.id = category .id
+
+  // const getProduct
 
   const handleAddToWishList = () => {
-    wishItemsContext.addItem(props.item);
-    // console.log(props.item);
+    wishItemsContext.addItem(product);
+    // console.log(product);
   };
 
   const handleAddToCart = () => {
-    cartItemsContext.addItem(props.item, 1);
+    cartItemsContext.addItem(product, 1);
     // console.log(props.item);
   };
 
@@ -30,15 +34,10 @@ const ItemCard = (props) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {isHovered ? (
+          {/* Check if props.item.image is defined and has at least one element */}
+          {product.image && product.image.length > 0 && (
             <img
-              src={`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[1].filename}`}
-              alt="item"
-              className="product__img"
-            />
-          ) : (
-            <img
-              src={`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[0].filename}`}
+              src= {product.image}
               alt="item"
               className="product__img"
             />
@@ -46,15 +45,15 @@ const ItemCard = (props) => {
         </div>
         <div className="product__card__detail">
           <div className="product__name">
-            <Link to={`/item/${props.item.category}/${props.item._id}`}>
-              {props.item.name}
-            </Link>
+            {/* <Link to={`/item/${props.item.category}/${props.item._id}`}>
+              {product.name}
+            </Link> */}
           </div>
           <div className="product__description">
-            <span>{props.item.description}</span>
+            <span>{product.description}</span>
           </div>
           <div className="product__price">
-            <span>${props.item.price}</span>
+            <span>${product.price}</span>
           </div>
           <div className="product__card__action">
             <IconButton
