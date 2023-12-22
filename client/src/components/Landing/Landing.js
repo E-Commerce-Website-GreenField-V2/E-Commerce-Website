@@ -40,7 +40,11 @@ const Landing = () => {
         </div>
       </div>
       <div className="landing__image__container">
-        <img className="landing__image" src="" alt="" />
+        <img
+          className="landing__image"
+          src="https://res.cloudinary.com/dubduh12x/image/upload/v1703199198/businessman-with-his-arms-crossed-removebg-preview_ej86lo.png"
+          alt=""
+        />
       </div>
     </div>
   );
