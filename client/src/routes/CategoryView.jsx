@@ -31,7 +31,7 @@ const CategoryView = () => {
       {loading && (
         <ReactLoading
           type="balls"
-          color="#FFE26E"
+          color="#6c757d"
           height={100}
           width={100}
           className="m-auto"

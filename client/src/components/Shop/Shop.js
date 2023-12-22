@@ -30,7 +30,7 @@ const Shop = () => {
       {loading && (
         <ReactLoading
           type="balls"
-          color="#FFE26E"
+          color="#6c757d"
           height={100}
           width={100}
           className="container h-100 w-10 justify-self-center align-self-center m-auto"

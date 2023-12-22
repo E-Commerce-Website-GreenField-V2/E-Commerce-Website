@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/authContext.jsx";
+import LoginCard from "../Card/LoginCard/LoginCard";
 
+import "./Login.css";
 function Login() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
@@ -42,28 +44,33 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="form-container">
-        <h2 className="title">Login</h2>
-        <form onSubmit={handleSubmit} className="form">
-          <label className="label">
-            Email Address:
-            <input type="email" name="email" required className="input" />
-          </label>
-          <label className="label">
-            Password:
-            <input type="password" name="password" required className="input" />
-          </label>
-          <button type="submit" className="button" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
+    // <div className="container">
+    //   <div className="form-container">
+    //     <h2 className="title">Login</h2>
+    //     <form onSubmit={handleSubmit} className="form">
+    //       <label className="label">
+    //         Email Address:
+    //         <input type="email" name="email" required className="input" />
+    //       </label>
+    //       <label className="label">
+    //         Password:
+    //         <input type="password" name="password" required className="input" />
+    //       </label>
+    //       <button type="submit" className="button" disabled={loading}>
+    //         {loading ? "Logging in..." : "Login"}
+    //       </button>
+    //     </form>
 
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+    //     {errorMessage && <div className="error-message">{errorMessage}</div>}
 
-        <p className="create-account-link">
-          Don't have an account? <a href="/signup">Sign up here</a>.
-        </p>
+    //     <p className="create-account-link">
+    //       Don't have an account? <a href="/signup">Sign up here</a>.
+    //     </p>
+    //   </div>
+    // </div>
+    <div className="login__auth__container">
+      <div className="login__auth">
+        <LoginCard />
       </div>
     </div>
   );

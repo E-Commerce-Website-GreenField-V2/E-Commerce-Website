@@ -1,5 +1,3 @@
-
-
 .landing__container {
     width: 100%;
     min-height: 420px;
@@ -9,7 +7,7 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap-reverse;
-    background-color: #ffe26e;
+    background-color: #f6f6f6;
     position: relative;
 }
 
@@ -56,7 +54,7 @@
 
 .landing__image__container {
     width: 50%;
-    height: ;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +69,7 @@
 
 
 @media screen and (max-width: 850px) {
-    .landing__image__container{
-       display: none;
+    .landing__image__container {
+        display: none;
     }
 }
