@@ -35,12 +35,13 @@ const getUserById = async (req, res) => {
 
 
 const createUser = async (req, res) => {
-  const { fullName, email, userPassword, role } = req.body;
+  const { fullName, email, password, role } = req.body;
 //   console.log("req",req.body);
-  const hashedPassword = await bcrypt.hash(userPassword, 10);
+  
 //   console.log("user",User);
 
   try {
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await User.create({
       fullName,
       email,
