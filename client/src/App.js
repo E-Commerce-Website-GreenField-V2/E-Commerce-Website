@@ -18,6 +18,7 @@ import Shop from "../src/components/Shop/Shop.js";
 import CategoryView from "../src/routes/CategoryView.jsx";
 import Header from "./components/Header/Header.js";
 import Admin from "../src/components/Admin/Admin.jsx";
+import ProductDetails from './components/products/ProductDetails.jsx'
 
 import Footer from "./components/Footer/Footer";
 import Home from "./routes/Home.jsx";
@@ -69,6 +70,7 @@ function App() {
 
             <Routes>
               <Route path="/admin" element={<Admin />} />
+              <Route path="/ProductDetails" element={<ProductDetails />} />
             </Routes>
             <Footer />
           </Router>
