@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import "./MyAccount.css";
 import { Link } from "react-router-dom";
 import { useUserId } from "../../../Context/userContext.js";
+import LogoutUtility from "../../authentification/Logout.js";
 
 const MyAccount = () => {
   const { userId } = useUserId();
-  console.log("ID", userId);
+  const handleLogout = LogoutUtility();
 
   const [user, setUser] = useState(null);
 
@@ -23,7 +24,7 @@ const MyAccount = () => {
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
-          console.log(userData);
+          // console.log(userData);
         } else {
           throw new Error("Failed to fetch user data");
         }
@@ -43,25 +44,26 @@ const MyAccount = () => {
         <div className="order__history">
           <div className="order__history__header">Order History</div>
           <div className="order__history__detail">
-            You have not place any orders yet
+            You have not placed any orders yet
           </div>
         </div>
       </div>
       <div className="account__details__container">
         <div className="account__details__header">
           <div className="details__header">Account Details</div>
-          <div className="logout__action">Logout</div>
+          <button className="logout__action" onClick={() => { handleLogout(); console.log("Logout clicked"); }}>
+            Logout
+          </button>
         </div>
         <div className="account__details">
           <div className="account__holder__name">
-            {" "}
-            User Name :{user?.fullName || "Loading..."}
+            User Name: {user?.fullName || "Loading..."}
           </div>
           <div className="account__holder__email">
-            User Email : {user?.email || "Loading..."}
+            User Email: {user?.email || "Loading..."}
           </div>
           <div className="account__holder__Role">
-            User Role : {user?.role || "Loading..."}
+            User Role: {user?.role || "Loading..."}
           </div>
           <div className="manage__account__action">
             <Link to="/account/manage">Manage account</Link>

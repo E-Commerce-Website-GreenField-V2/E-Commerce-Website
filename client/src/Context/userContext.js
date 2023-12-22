@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
 const UserIdContext = createContext();
@@ -10,9 +11,13 @@ const UserIdProvider = ({ children }) => {
     sessionStorage.setItem('userId', newUserId);
   };
 
+  const clearUserId = () => {
+    setUserId(null);
+    sessionStorage.removeItem('userId');
+  };
 
   return (
-    <UserIdContext.Provider value={{ userId, setUserId: setNewUserId }}>
+    <UserIdContext.Provider value={{ userId, setUserId: setNewUserId, clearUserId }}>
       {children}
     </UserIdContext.Provider>
   );
