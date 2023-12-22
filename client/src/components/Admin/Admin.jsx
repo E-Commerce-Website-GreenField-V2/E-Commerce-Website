@@ -1,50 +1,74 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SecurityIcon from "@mui/icons-material/Security";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
+import { useUserId } from "../../Context/userContext";
 import {
   randomCreatedDate,
   randomUpdatedDate,
 } from "@mui/x-data-grid-generator";
 
 const Admin = [
-  {
-    id: 1,
-    name: "Amine",
-    age: 21,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-    isAdmin: true,
-    country: "Spain",
-    discount: "20%",
-  },
-  {
-    id: 2,
-    name: "Ali",
-    age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-    isAdmin: false,
-    country: "France",
-    discount: "10%",
-  },
-  {
-    id: 3,
-    name: "salmen",
-    age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-    isAdmin: false,
-    country: "Brazil",
-    discount: "30%",
-  },
+  // {
+  //   id: 1,
+  //   name: "Amine",
+  //   age: 21,
+  //   dateCreated: randomCreatedDate(),
+  //   lastLogin: randomUpdatedDate(),
+  //   isAdmin: true,
+  //   country: "Spain",
+  //   discount: "20%",
+  // },
+  // {
+  //   id: 2,
+  //   name: "Ali",
+  //   age: 25,
+  //   dateCreated: randomCreatedDate(),
+  //   lastLogin: randomUpdatedDate(),
+  //   isAdmin: false,
+  //   country: "France",
+  //   discount: "10%",
+  // },
+  // {
+  //   id: 3,
+  //   name: "salmen",
+  //   age: 25,
+  //   dateCreated: randomCreatedDate(),
+  //   lastLogin: randomUpdatedDate(),
+  //   isAdmin: false,
+  //   country: "Brazil",
+  //   discount: "30%",
+  // },
 ];
 
 export default function ColumnTypesGrid() {
   const [rows, setRows] = React.useState(Admin);
+  const [products, setProducts] = useState([]);
+  const [sellerProduct, setSellerProducts] = useState("");
+  const { userId } = useUserId();
+  console.log("louay", userId);
 
-  const deleteUser = React.useCallback(
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(`http://localhost:8000/products/${userId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setProducts(data);
+        console.log(data);
+      } else {
+        throw new Error("Failed to fetch products");
+      }
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const deleteProduct = React.useCallback(
     (id) => () => {
       setTimeout(() => {
         setRows((prevRows) => prevRows.filter((row) => row.id !== id));
@@ -64,7 +88,7 @@ export default function ColumnTypesGrid() {
     []
   );
 
-  const duplicateUser = React.useCallback(
+  const duplicateProduct = React.useCallback(
     (id) => () => {
       setRows((prevRows) => {
         const rowToDuplicate = prevRows.find((row) => row.id === id);
@@ -76,14 +100,18 @@ export default function ColumnTypesGrid() {
 
   const columns = React.useMemo(
     () => [
-      { field: "name", type: "string" },
-      { field: "age", type: "number" },
-      { field: "dateCreated", type: "date", width: 130 },
-      { field: "lastLogin", type: "dateTime", width: 180 },
-      { field: "isAdmin", type: "boolean", width: 120 },
+      { field: "id", headerName: "ID", width: 90 },
+      { field: "name", headerName: "Name", width: 150 },
+      { field: "price", headerName: "Price", width: 120 },
+      { field: "image", headerName: "Image", width: 180 },
+      { field: "description", headerName: "Description", width: 180 },
+      { field: "available", headerName: "Available", width: 120 },
+      { field: "rate", headerName: "Rate", width: 120 },
+      { field: "createdAt", headerName: "Created At", width: 180 },
+      { field: "quantity", headerName: "Quantity", width: 120 },
       {
-        field: "country",
-        type: "singleSelect",
+        field: "sellerProduct",
+        type: "Seller Product",
         width: 120,
         valueOptions: [
           "Bulgaria",
@@ -121,7 +149,7 @@ export default function ColumnTypesGrid() {
           <GridActionsCellItem
             icon={<DeleteIcon />}
             label="Delete"
-            onClick={deleteUser(params.id)}
+            onClick={deleteProduct(params.id)}
           />,
           <GridActionsCellItem
             icon={<SecurityIcon />}
@@ -131,19 +159,19 @@ export default function ColumnTypesGrid() {
           />,
           <GridActionsCellItem
             icon={<FileCopyIcon />}
-            label="Duplicate User"
-            onClick={duplicateUser(params.id)}
+            label="Duplicate Product"
+            onClick={duplicateProduct(params.id)}
             showInMenu
           />,
         ],
       },
     ],
-    [deleteUser, toggleAdmin, duplicateUser]
+    [deleteProduct, toggleAdmin, duplicateProduct]
   );
 
   return (
     <div style={{ height: 300, width: "100%" }}>
-      <DataGrid columns={columns} rows={rows} />
+      <DataGrid columns={columns} rows={products} />
     </div>
   );
 }

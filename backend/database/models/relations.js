@@ -14,6 +14,7 @@ User.belongsToMany(Product, { through: Cart });
 
 Product.belongsToMany(User, { through: Wishlist });
 User.belongsToMany(Product, { through: Wishlist });
+Product.belongsTo(User, { foreignKey: "sellerProduct" });
 
 sequelize
   .sync()
