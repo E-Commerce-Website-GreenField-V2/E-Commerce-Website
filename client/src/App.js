@@ -20,7 +20,7 @@ import CategoryView from "../src/routes/CategoryView.jsx";
 import Header from "./components/Header/Header.js";
 import Admin from "../src/components/Admin/Admin.jsx";
 import ProductDetails from "./components/products/ProductDetails.jsx";
-
+import AddProducts from "./components/products/AddProducts.jsx";
 import Footer from "./components/Footer/Footer";
 import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
@@ -41,7 +41,13 @@ function App() {
               <SearchBar setResults={setResults} />
               <SearchResults results={results} />
               <Routes>
+                <Route path="/contact" element={<Contact />} />
                 <Route index element={<Home />} />
+                <Route path="addProducts" element={<AddProducts />} />
+                {/* <Route
+                  path="dormDateRangeField"
+                  element={<FormDateRangeField />}
+                /> */}
                 <Route path="/account">
                   <Route index element={<Login />} />
                   <Route path="me" element={<MyAccount />} />
@@ -70,7 +76,6 @@ function App() {
                 <Route path="/wishlist" element={<Wishlist />} />
                 {/* <Route path="/search/*" element={<SearchView />} /> */}
 
-                <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 {/* <Route path="*" element={<NotFound />} /> */}
               </Routes>

@@ -1,44 +1,58 @@
 import React, { useState } from "react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
-function Cloudinary({ setImg }) {
+function Cloudinary({ setImages }) {
   const cloudName = "dubduh12x";
   const presetName = "qncgi1tt";
-  const [image, setImage] = useState("");
+  const [previewImages, setPreviewImages] = useState([]);
 
   const handleUpload = async (e) => {
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", presetName);
+    const files = e.target.files;
 
     try {
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
+      const uploadedImages = await Promise.all(
+        Array.from(files).map(async (file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("upload_preset", presetName);
+
+          const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          const data = await response.json();
+          return data.secure_url;
+        })
       );
 
-      const data = await response.json();
-      setImage(data.secure_url);
-      setImg(data.secure_url);
+      setPreviewImages((prevImages) => [...prevImages, ...uploadedImages]);
+      setImages((prevImages) => [...prevImages, ...uploadedImages]);
     } catch (error) {
-      console.error("Error uploading image: ", error);
+      console.error("Error uploading images: ", error);
     }
   };
-  console.log(image);
+
   return (
     <div className="cloudinary">
       <label>
-        <MdOutlineAddPhotoAlternate />
+        <MdOutlineAddPhotoAlternate style={{ fontSize: "3em" }} />
         <input
           type="file"
           onChange={handleUpload}
           style={{ display: "none" }}
+          multiple
         />
       </label>
+
+      <div className="preview">
+        {previewImages.map((url, index) => (
+          <img key={index} src={url} alt={`Uploaded ${index}`} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -46,6 +60,7 @@ function Cloudinary({ setImg }) {
 export default Cloudinary;
 
 // //example of using
+
 // import React, { useState } from "react";
 // import Cloudinary from "./Cloudinary";
 
