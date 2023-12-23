@@ -75,7 +75,7 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    // Assuming that the request body contains the necessary fields for creating a product
+   
     const newProduct = await Product.create(req.body);
     res.status(201).json(newProduct);
   } catch (error) {

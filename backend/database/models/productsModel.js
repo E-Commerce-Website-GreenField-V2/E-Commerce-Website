@@ -22,13 +22,14 @@ const Product = sequelize.define("Product", {
   available: {
     type: DataTypes.TINYINT,
     allowNull: false,
+    defaultValue: 1, 
   },
   rate: {
     type: DataTypes.INTEGER,
     allowNull: true,
     defaultValue: 0,
     validate: {
-      min: 1,
+      min: 0,
       max: 5,
     },
   },
