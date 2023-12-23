@@ -5,60 +5,45 @@ import "./SearchBar.css";
 import { useContext } from "react";
 import { SearchContext } from "../../../Context/SearchContext";
 
-const Form = () => {
+const Form = ({ setResults }) => {
   const [searchInput, setSearchInput] = useState("");
   const [products, setProducts] = useState([]);
   const searchContext = useContext(SearchContext);
+  const [input, setInput] = useState("");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Fetch products when the component mounts
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:8000/products");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const responseData = await response.json();
-        setProducts(responseData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
-  }, []); // Empty dependency array to fetch products only once 
- 
-
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
+  const fetchData = (value) => {
+    fetch("http://localhost:8000/products")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("2", json);
+        const results = json.filter((product) => {
+          return (
+            value &&
+            product &&
+            product.name &&
+            product.name.toLowerCase().includes(value)
+          );
+        });
+        console.log("1", results);
+        setResults(results);
+      });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    // Filter products based on the search input
-    const filteredProducts = products.filter((product) =>
-      product.name.toLowerCase().includes(searchInput.toLowerCase())
-    );
-
-    // Update the search results in the context
-    searchContext.setSearchResults(filteredProducts);
-
-    // Redirect to the search results page
-    navigate("/search");
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
   };
 
   return (
-    <form className="search__form" onSubmit={handleFormSubmit}>
+    <form className="search__form">
       <input
         type="text"
         placeholder="Search for products"
         className="search__form__input"
-        value={searchInput}
-        onChange={handleChange}
-        required
+        value={input}
+        onChange={(e) => handleChange(e.target.value)}
       />
+
       <button className="search__form__button" type="submit">
         <SearchIcon fontSize="medium" />
       </button>

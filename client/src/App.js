@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/authentification/Login.jsx";
@@ -25,10 +25,12 @@ import Footer from "./components/Footer/Footer";
 import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
 import Wishlist from "./components/Wishlist/index.js";
+import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import FormDateRangeField from "./components/FormDateRangeField.jsx";
+import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
+
 function App() {
-  
+  const [results, setResults] = useState([]);
   return (
     <AuthProvider>
       <UserIdProvider>
@@ -36,9 +38,10 @@ function App() {
           <WishItemsProvider>
             <Router>
               <Header />
-              
+              <SearchBar setResults={setResults} />
+              <SearchResults results={results} />
               <Routes>
-              <Route path="/contact" element={<Contact />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route index element={<Home />} />
                 <Route path="addProducts" element={<AddProducts />} />
                 {/* <Route
@@ -73,11 +76,10 @@ function App() {
                 <Route path="/wishlist" element={<Wishlist />} />
                 {/* <Route path="/search/*" element={<SearchView />} /> */}
 
-                
                 <Route path="/about" element={<About />} />
                 {/* <Route path="*" element={<NotFound />} /> */}
               </Routes>
-              
+
               <Routes>
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/ProductDetails" element={<ProductDetails />} />

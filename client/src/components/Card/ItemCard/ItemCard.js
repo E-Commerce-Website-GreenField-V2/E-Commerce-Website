@@ -8,7 +8,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { WishItemsContext } from "../../../Context/WishItemsContext";
 import axios from "axios";
 
-const ItemCard = ({product}) => {
+const ItemCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
@@ -36,11 +36,7 @@ const ItemCard = ({product}) => {
         >
           {/* Check if props.item.image is defined and has at least one element */}
           {product.image && product.image.length > 0 && (
-            <img
-              src= {product.image}
-              alt="item"
-              className="product__img"
-            />
+            <img src={product.image} alt="item" className="product__img" />
           )}
         </div>
         <div className="product__card__detail">
