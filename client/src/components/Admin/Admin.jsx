@@ -48,12 +48,14 @@ export default function ColumnTypesGrid() {
   const [products, setProducts] = useState([]);
   const [sellerProduct, setSellerProducts] = useState("");
   const { userId } = useUserId();
-  console.log("louay", userId);
+  console.log("amine", userId);
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/products/${userId}`);
-      if (response.ok) {
+      const response = await fetch(
+        `http://localhost:8000/products/${sellerProduct}`
+      );
+      if (response.ok && userId) {
         const data = await response.json();
         setProducts(data);
         console.log(data);
