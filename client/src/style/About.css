@@ -1,4 +1,4 @@
-.summer-sale-for {
+.summer-sale-fo {
     position: relative;
     line-height: 21px;
     display: inline-block;
@@ -6,14 +6,14 @@
     height: 18px;
     flex-shrink: 0;
 }
-.shopnow {
+.shopno {
     position: relative;
     text-decoration: underline;
     line-height: 24px;
     font-weight: 600;
     text-align: center;
 }
-.summer-sale-for-all-swim-suits-parent {
+.summer-sale-for-all-swim-suits-paren{
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -21,11 +21,11 @@
     justify-content: flex-start;
     gap: 8px;
 }
-.english {
+.englis {
     position: relative;
     line-height: 21px;
 }
-.dropdown-icon {
+.dropdown-ico {
     position: relative;
     width: 24px;
     height: 24px;
@@ -33,7 +33,7 @@
     flex-shrink: 0;
     object-fit: cover;
 }
-.english-parent {
+.english-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -41,7 +41,7 @@
     justify-content: center;
     gap: 5px;
 }
-.frame-parent {
+.frame-paren {
     position: absolute;
     top: 12px;
     right: 136px;
@@ -51,7 +51,7 @@
     justify-content: flex-start;
     gap: 231px;
 }
-.top-header {
+.top-heade {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -61,55 +61,55 @@
     overflow: hidden;
     color: #fafafa;
 }
-.exclusive {
+.exclusiv{
     position: absolute;
     top: 0%;
     left: 0%;
     letter-spacing: 0.03em;
     line-height: 24px;
 }
-.logo {
+.log {
     position: relative;
     width: 118px;
     height: 24px;
 }
-.home {
+.hom {
     position: absolute;
     top: 0%;
     left: 0%;
     line-height: 24px;
 }
-.header1 {
+.header {
     position: relative;
     width: 48px;
     height: 24px;
 }
-.header2 {
+.header {
     position: relative;
     width: 66px;
     height: 24px;
     cursor: pointer;
 }
-.underline-icon {
+.underline-ico {
     position: relative;
     max-height: 100%;
     width: 48px;
     object-fit: cover;
     opacity: 0.5;
 }
-.header3 {
+.header {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
-.header4 {
+.header{
     position: relative;
     width: 61px;
     height: 24px;
 }
-.header-parent {
+.header-paren{
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -120,7 +120,7 @@
     font-size: 16px;
     font-family: Poppins;
 }
-.logo-parent {
+.logo-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -128,12 +128,12 @@
     justify-content: flex-start;
     gap: 160px;
 }
-.what-are-you {
+.what-are-yo {
     position: relative;
     line-height: 18px;
     opacity: 0.5;
 }
-.what-are-you-looking-for-parent {
+.what-are-you-looking-for-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -141,7 +141,7 @@
     justify-content: center;
     gap: 34px;
 }
-.search-component-set {
+.search-component-se {
     border-radius: 4px;
     background-color: #f5f5f5;
     flex-shrink: 0;
@@ -151,7 +151,7 @@
     justify-content: center;
     padding: 7px 12px 7px 20px;
 }
-.wishlist-icon {
+.wishlist-ico {
     position: relative;
     width: 32px;
     height: 32px;
@@ -159,13 +159,13 @@
     flex-shrink: 0;
     object-fit: cover;
 }
-.cart1-with-buy {
+.cart1-with-bu {
     position: relative;
     width: 32px;
     height: 32px;
     object-fit: cover;
 }
-.wishlist-parent {
+.wishlist-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -173,7 +173,7 @@
     justify-content: center;
     gap: 16px;
 }
-.search-component-set-parent {
+.search-component-set-paren{
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -183,7 +183,7 @@
     font-size: 12px;
     font-family: Poppins;
 }
-.header {
+.heade {
     position: absolute;
     top: 88px;
     left: 135px;
@@ -195,7 +195,7 @@
     font-size: 24px;
     font-family: Inter;
 }
-.about-child {
+.about-chil {
     position: absolute;
     top: 142px;
     left: 0px;
@@ -203,18 +203,18 @@
     height: 0px;
     object-fit: cover;
 }
-.account {
+.accoun {
     position: relative;
     line-height: 21px;
     opacity: 0.5;
 }
-.roadmap-child {
+.roadmap-chil {
     position: relative;
     width: 6px;
     height: 11.75px;
     object-fit: contain;
 }
-.roadmap {
+.roadma {
     position: absolute;
     top: 222px;
     left: 135px;
@@ -224,26 +224,26 @@
     justify-content: flex-start;
     gap: 12px;
 }
-.our-story {
+.our-stor {
     position: relative;
     letter-spacing: 0.06em;
     line-height: 64px;
     font-weight: 600;
 }
-.launced-in-2015 {
+.launced-in-201 {
     position: relative;
     line-height: 26px;
     display: inline-block;
     width: 525px;
 }
-.exclusive-has-more {
+.exclusive-has-mor {
     position: relative;
     line-height: 26px;
     white-space: pre-wrap;
     display: inline-block;
     width: 505px;
 }
-.launced-in-2015-exclusive-is-parent {
+.launced-in-2015-exclusive-is-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -254,7 +254,7 @@
     font-size: 16px;
     font-family: Poppins;
 }
-.our-story-parent {
+.our-story-paren {
     position: absolute;
     top: 422px;
     left: 135px;
@@ -267,7 +267,7 @@
     font-size: 54px;
     font-family: Inter;
 }
-.portrait-two-african-females-h-icon {
+.portrait-two-african-females-h-ico {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -275,7 +275,7 @@
     height: 609px;
     object-fit: cover;
 }
-.side-image {
+.side-imag {
     position: absolute;
     top: 285px;
     left: 734px;
@@ -285,24 +285,24 @@
     height: 609px;
     overflow: hidden;
 }
-.services-icon {
+.services-ico {
     position: relative;
     width: 80px;
     height: 80px;
     object-fit: cover;
 }
-.free-and-fast {
+.free-and-fas {
     position: relative;
     line-height: 28px;
     font-weight: 600;
 }
-.free-delivery-for {
+.free-delivery-fo {
     position: relative;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
 }
-.free-and-fast-delivery-parent {
+.free-and-fast-delivery-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -310,7 +310,7 @@
     justify-content: flex-start;
     gap: 8px;
 }
-.services-parent {
+.services-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -318,19 +318,19 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.friendly-247-customer {
+.friendly-247-custome {
     position: relative;
     font-size: 14px;
     line-height: 21px;
 }
-.customer-service-parent {
+.customer-service-paren {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
 }
-.services-group {
+.services-grou {
     width: 262px;
     display: flex;
     flex-direction: column;
@@ -338,7 +338,7 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.full-services {
+.full-service {
     position: absolute;
     top: 2164px;
     left: 248px;
@@ -349,19 +349,19 @@
     gap: 88px;
     font-size: 20px;
 }
-.free-and-fast1 {
+.free-and-fast {
     position: relative;
     letter-spacing: 0.04em;
     line-height: 30px;
 }
-.free-delivery-for1 {
+.free-delivery-for {
     position: relative;
     font-size: 16px;
     line-height: 24px;
     font-family: Poppins;
     text-align: center;
 }
-.free-and-fast-delivery-group {
+.free-and-fast-delivery-grou {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -369,7 +369,7 @@
     justify-content: flex-start;
     gap: 12px;
 }
-.frame-div {
+.frame-di {
     position: absolute;
     top: 30px;
     left: 50px;
@@ -379,7 +379,7 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.instance-wrapper {
+.instance-wrappe {
     position: relative;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -389,7 +389,7 @@
     overflow: hidden;
     flex-shrink: 0;
 }
-.services-parent1 {
+.services-parent {
     position: absolute;
     top: 32px;
     left: 35px;
@@ -399,7 +399,7 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.instance-container {
+.instance-containe {
     position: relative;
     border-radius: 4px;
     background-color: #db4444;
@@ -410,14 +410,14 @@
     flex-shrink: 0;
     color: #fff;
 }
-.customer-service-group {
+.customer-service-grou {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
 }
-.services-parent2 {
+.services-parent {
     position: absolute;
     top: 30px;
     left: 4px;
@@ -428,7 +428,7 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.services-parent3 {
+.services-parent {
     position: absolute;
     top: 30px;
     left: 28px;
@@ -438,7 +438,7 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.frame-group {
+.frame-grou {
     position: absolute;
     top: 1034px;
     left: 135px;
@@ -450,7 +450,7 @@
     font-size: 32px;
     font-family: Inter;
 }
-.image-46-icon {
+.image-46-ico {
     position: absolute;
     top: 39px;
     left: 67px;
@@ -458,7 +458,7 @@
     height: 391px;
     object-fit: cover;
 }
-.image-46-wrapper {
+.image-46-wrappe {
     position: relative;
     border-radius: 4px;
     background-color: #f5f5f5;
@@ -467,19 +467,19 @@
     overflow: hidden;
     flex-shrink: 0;
 }
-.tom-cruise {
+.tom-cruis {
     position: relative;
     letter-spacing: 0.04em;
     line-height: 30px;
     font-weight: 500;
 }
-.founder-chairman {
+.founder-chairma {
     position: relative;
     font-size: 16px;
     line-height: 24px;
     font-family: Poppins;
 }
-.tom-cruise-parent {
+.tom-cruise-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -487,7 +487,7 @@
     justify-content: flex-start;
     gap: 8px;
 }
-.icon-twitter-parent {
+.icon-twitter-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -495,23 +495,9 @@
     justify-content: flex-start;
     gap: 16px;
 }
-.frame-parent2 {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 16px;
-}
-.frame-parent1 {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 32px;
-}
-.image-51-icon {
+
+
+.image-51-ico {
     position: absolute;
     top: 33px;
     left: 38px;
@@ -519,7 +505,7 @@
     height: 397px;
     object-fit: cover;
 }
-.image-47-icon {
+.image-47-ico {
     position: absolute;
     top: 38px;
     left: 22px;
@@ -527,7 +513,7 @@
     height: 392px;
     object-fit: cover;
 }
-.frame-container {
+.frame-containe {
     position: absolute;
     top: 1404px;
     left: 135px;
@@ -539,7 +525,7 @@
     font-size: 32px;
     font-family: Inter;
 }
-.frame-child {
+.frame-chil {
     position: relative;
     border-radius: 50%;
     background-color: #000;
@@ -547,13 +533,13 @@
     height: 12px;
     opacity: 0.3;
 }
-.frame-inner {
+.frame-inne {
     position: relative;
     width: 16px;
     height: 16px;
     object-fit: cover;
 }
-.ellipse-parent {
+.ellipse-paren {
     position: absolute;
     top: 2008px;
     left: 663px;
@@ -563,14 +549,14 @@
     justify-content: flex-start;
     gap: 12px;
 }
-.underline-icon1 {
+.underline-icon {
     position: relative;
     max-height: 100%;
     width: 1440px;
     object-fit: cover;
     opacity: 0.5;
 }
-.icon-copyright {
+.icon-copyrigh {
     position: relative;
     width: 20px;
     height: 20px;
@@ -578,7 +564,7 @@
     flex-shrink: 0;
     object-fit: cover;
 }
-.icon-copyright-parent {
+.icon-copyright-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -586,7 +572,7 @@
     justify-content: flex-start;
     gap: 6px;
 }
-.frame-wrapper {
+.frame-wrappe {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -594,7 +580,7 @@
     justify-content: flex-start;
     opacity: 0.6;
 }
-.underline-parent {
+.underline-paren {
     position: absolute;
     top: 376px;
     left: 0px;
@@ -605,14 +591,14 @@
     gap: 16px;
     opacity: 0.4;
 }
-.subscribe {
+.subscrib {
     position: relative;
     font-size: 20px;
     line-height: 28px;
     font-weight: 500;
     font-family: Poppins;
 }
-.logo-group {
+.logo-grou {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -620,12 +606,12 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.enter-your-email {
+.enter-your-emai {
     position: relative;
     line-height: 24px;
     opacity: 0.4;
 }
-.send-mail {
+.send-mai {
     border-radius: 4px;
     border: 1.5px solid #fafafa;
     box-sizing: border-box;
@@ -640,33 +626,24 @@
     font-size: 16px;
     font-family: Poppins;
 }
-.frame-parent8 {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 16px;
-    font-size: 24px;
-    font-family: Inter;
-}
-.support {
+
+.suppor {
     position: relative;
     line-height: 28px;
     font-weight: 500;
 }
-.bijoy-sarani-dhaka {
+.bijoy-sarani-dhak {
     position: relative;
     line-height: 24px;
     white-space: pre-wrap;
     display: inline-block;
     width: 175px;
 }
-.exclusivegmailcom {
+.exclusivegmailco {
     position: relative;
     line-height: 24px;
 }
-.bijoy-sarani-dhaka-dh-1515-parent {
+.bijoy-sarani-dhaka-dh-1515-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -675,13 +652,13 @@
     gap: 16px;
     font-size: 16px;
 }
-.save-3-with {
+.save-3-wit {
     position: relative;
     line-height: 18px;
     font-weight: 500;
     opacity: 0.7;
 }
-.qrcode-1-icon {
+.qrcode-1-ico {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -690,7 +667,31 @@
     top: 0px;
     transform: scale(1.066);
 }
-.wrapper-qrcode-1 {
+.frame-parent1,
+.frame-parent2,
+.icon-twitter-parent,
+.tom-cruise-parent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.frame-parent1,
+.frame-parent2,
+.icon-twitter-parent {
+  flex-direction: row;
+  gap: 16px;
+}
+.frame-parent1,
+.frame-parent2 {
+  flex-direction: column;
+}
+.frame-parent1 {
+  gap: 32px;
+}
+.wrapper-qrcode- {
     position: absolute;
     top: 2px;
     left: 2px;
@@ -700,7 +701,7 @@
     align-items: center;
     justify-content: center;
 }
-.qr-code {
+.qr-cod {
     position: relative;
     background-color: #000;
     width: 80px;
@@ -733,7 +734,7 @@
     overflow: hidden;
     flex-shrink: 0;
 }
-.googleplay-parent {
+.googleplay-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -741,7 +742,7 @@
     justify-content: flex-start;
     gap: 4px;
 }
-.save-3-with-app-new-user-only-parent {
+.save-3-with-app-new-user-only-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -750,7 +751,7 @@
     gap: 8px;
     font-size: 12px;
 }
-.icon-facebook-parent {
+.icon-facebook-paren {
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -758,18 +759,7 @@
     justify-content: flex-start;
     gap: 24px;
 }
-.frame-parent7 {
-    position: absolute;
-    top: 80px;
-    left: 135px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 87px;
-    font-size: 20px;
-    color: #fafafa;
-}
+
 .footer {
     position: absolute;
     top: 2465px;
@@ -781,7 +771,7 @@
     font-size: 16px;
     color: #fff;
 }
-.about {
+.abou {
     position: relative;
     background-color: #fff;
     width: 100%;
