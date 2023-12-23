@@ -28,6 +28,7 @@ import Wishlist from "./components/Wishlist/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  
   return (
     <AuthProvider>
       <UserIdProvider>
@@ -35,7 +36,9 @@ function App() {
           <WishItemsProvider>
             <Router>
               <Header />
+              
               <Routes>
+              <Route path="/contact" element={<Contact />} />
                 <Route index element={<Home />} />
                 <Route path="/account">
                   <Route index element={<Login />} />
@@ -65,11 +68,11 @@ function App() {
                 <Route path="/wishlist" element={<Wishlist />} />
                 {/* <Route path="/search/*" element={<SearchView />} /> */}
 
-                <Route path="/contact" element={<Contact />} />
+                
                 <Route path="/about" element={<About />} />
                 {/* <Route path="*" element={<NotFound />} /> */}
               </Routes>
-
+              
               <Routes>
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/ProductDetails" element={<ProductDetails />} />
