@@ -26,9 +26,7 @@ import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
 import Wishlist from "./components/Wishlist/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
-import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
-
+// import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
 function App() {
   const [results, setResults] = useState([]);
   console.log(results, "results");
@@ -39,7 +37,7 @@ function App() {
           <WishItemsProvider>
             <Router>
               <Header />
-              <SearchResults results={results} />
+              {/* <SearchResults results={results} /> */}
 
               <Routes>
                 <Route path="/contact" element={<Contact />} />
