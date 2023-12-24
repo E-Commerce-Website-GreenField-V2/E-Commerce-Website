@@ -1,6 +1,7 @@
 import React from "react";
 
 const SearchResults = ({ results }) => {
+  console.log(results, "results");
   return (
     <div>
       {results.map((result, i) => {

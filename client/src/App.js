@@ -25,13 +25,14 @@ import Footer from "./components/Footer/Footer";
 import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
 import Wishlist from "./components/Wishlist/index.js";
-import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
 import ProductPage from "./components/OneProduct/OneProduct.jsx";
+import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 
 function App() {
   const [results, setResults] = useState([]);
+  console.log(results, "results");
   return (
     <AuthProvider>
       <UserIdProvider>
@@ -39,13 +40,14 @@ function App() {
           <WishItemsProvider>
             <Router>
               <Header />
-              <SearchBar setResults={setResults} />
               <SearchResults results={results} />
+
               <Routes>
                 <Route path="/contact" element={<Contact />} />
                 <Route index element={<Home />} />
                 <Route path="addProducts" element={<AddProducts />} />
                 <Route path="/singleProduct" element={<ProductPage />} />
+
                 {/* <Route
                   path="dormDateRangeField"
                   element={<FormDateRangeField />}
