@@ -246,8 +246,8 @@
 }
 .button {
   position: absolute;
-  top: 460px;
-  left: 400px;
+  top: 642px;
+  left: 571px;
   border-radius: 4px;
   background-color: #db4444;
   display: flex;
@@ -257,7 +257,6 @@
   padding: 16px 48px;
   font-size: 16px;
   color: #fafafa;
-  
 }
 .icon-copyright,
 .underline-icon {
