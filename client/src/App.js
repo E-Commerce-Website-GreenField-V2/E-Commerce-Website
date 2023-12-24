@@ -28,6 +28,7 @@ import Wishlist from "./components/Wishlist/index.js";
 import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
+import ProductPage from "./components/OneProduct/OneProduct.jsx";
 
 function App() {
   const [results, setResults] = useState([]);
@@ -44,6 +45,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route index element={<Home />} />
                 <Route path="addProducts" element={<AddProducts />} />
+                <Route path="/singleProduct" element={<ProductPage />} />
                 {/* <Route
                   path="dormDateRangeField"
                   element={<FormDateRangeField />}
