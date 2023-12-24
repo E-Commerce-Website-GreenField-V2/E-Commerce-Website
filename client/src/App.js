@@ -28,7 +28,7 @@ import Wishlist from "./components/Wishlist/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
 import ProductPage from "./components/OneProduct/OneProduct.jsx";
-import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
+// import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 
 function App() {
   const [results, setResults] = useState([]);

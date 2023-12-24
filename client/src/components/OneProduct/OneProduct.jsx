@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
 import "../OneProduct/oneProduct.css";
+
+import { useState, useRef } from "react";
 function SingleProduct() {
   const [images, setImages] = useState({
     img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
@@ -33,13 +34,13 @@ function SingleProduct() {
 
   return (
     <div className="home-section">
-      <section class="padding-y">
-        <div class="container">
-          <div class="row">
-            <aside class="col-lg-6">
-              <article class="gallery-wrap">
+      <section className="padding-y">
+        <div className="container">
+          <div className="row">
+            <aside className="col-lg-6">
+              <article className="gallery-wrap">
                 <div
-                  class="img-big-wrap img-thumbnail"
+                  className="img-big-wrap img-thumbnail"
                   onMouseMove={handleMouseMove}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
@@ -49,69 +50,74 @@ function SingleProduct() {
                     data-type="image"
                     // href="assets/images/items/10.webp"
                   >
-                    <img ref={imgRef} height="560" src={activeImg} />
+                    <img ref={imgRef} height="560" src={activeImg} alt="" />
                   </a>
                 </div>
-                <div class="thumbs-wrap">
+                <div className="thumbs-wrap">
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
                     // href="assets/images/items/10.webp"
-                    class="item-thumb"
+                    className="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
                       src={images.img1}
                       onClick={() => setActiveImage(images.img1)}
+                      alt=""
                     />
                   </a>
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
                     // href="assets/images/items/10.webp"
-                    class="item-thumb"
+                    className="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
                       src={images.img2}
                       onClick={() => setActiveImage(images.img2)}
+                      alt=""
                     />
                   </a>
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
                     // href="assets/images/items/10.webp"
-                    class="item-thumb"
+                    className="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
                       src={images.img3}
                       onClick={() => setActiveImage(images.img3)}
+                      alt=""
                     />
                   </a>
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
                     // href="assets/images/items/10.webp"
-                    class="item-thumb"
+                    className="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
                       src={images.img4}
                       onClick={() => setActiveImage(images.img4)}
+                      alt=""
                     />
                   </a>
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
                     // href="assets/images/items/10.webp"
-                    class="item-thumb"
+                    className="item-thumb"
                   >
                     <img
+                      alt=""
                       width="60"
                       height="60"
                       src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png"
@@ -120,15 +126,15 @@ function SingleProduct() {
                 </div>
               </article>
             </aside>
-            <main class="col-lg-6">
-              <article class="ps-lg-3">
-                <h4 class="title text-dark">
+            <main className="col-lg-6">
+              <article className="ps-lg-3">
+                <h4 className="title text-dark">
                   Quality Men's Sneaker for Sports, Men's Fashion <br /> Casual
                   Sneakers{" "}
                 </h4>
-                <div class="rating-wrap my-3">
-                  <ul class="rating-stars">
-                    <li style={{ width: "80%" }} class="stars-active">
+                <div className="rating-wrap my-3">
+                  <ul className="rating-stars">
+                    <li style={{ width: "80%" }} className="stars-active">
                       {" "}
                       <img
                         src="assets/images/misc/stars-active.svg"
@@ -143,19 +149,19 @@ function SingleProduct() {
                       />{" "}
                     </li>
                   </ul>
-                  <b class="label-rating text-warning"> 4.5</b>
-                  <i class="dot"></i>
-                  <span class="label-rating text-muted">
+                  <b className="label-rating text-warning"> 4.5</b>
+                  <i className="dot"></i>
+                  <span className="label-rating text-muted">
                     {" "}
-                    <i class="fa fa-shopping-basket"></i> 154 orders{" "}
+                    <i className="fa fa-shopping-basket"></i> 154 orders{" "}
                   </span>
-                  <i class="dot"></i>
-                  <span class="label-rating text-success">In stock</span>
+                  <i className="dot"></i>
+                  <span className="label-rating text-success">In stock</span>
                 </div>
 
-                <div class="mb-3">
-                  <var class="price h5">$75.00</var>
-                  <span class="text-muted">/per box</span>
+                <div className="mb-3">
+                  <var className="price h5">$75.00</var>
+                  <span className="text-muted">/per box</span>
                 </div>
 
                 <p>
@@ -165,35 +171,35 @@ function SingleProduct() {
                   clothing low-top shirts for men.
                 </p>
 
-                <dl class="row">
-                  <dt class="col-3">Type:</dt>
-                  <dd class="col-9">Regular</dd>
+                <dl className="row">
+                  <dt className="col-3">Type:</dt>
+                  <dd className="col-9">Regular</dd>
 
-                  <dt class="col-3">Color</dt>
-                  <dd class="col-9">Brown</dd>
+                  <dt className="col-3">Color</dt>
+                  <dd className="col-9">Brown</dd>
 
-                  <dt class="col-3">Material</dt>
-                  <dd class="col-9">Cotton, Jeans </dd>
+                  <dt className="col-3">Material</dt>
+                  <dd className="col-9">Cotton, Jeans </dd>
 
-                  <dt class="col-3">Brand</dt>
-                  <dd class="col-9">Reebook </dd>
+                  <dt className="col-3">Brand</dt>
+                  <dd className="col-9">Reebook </dd>
                 </dl>
 
                 <hr />
 
-                <div class="row mb-4">
-                  <div class="col-md-4 col-6 mb-2">
-                    <label class="form-label">Size</label>
-                    <select class="form-select">
+                <div className="row mb-4">
+                  <div className="col-md-4 col-6 mb-2">
+                    <label className="form-label">Size</label>
+                    <select className="form-select">
                       <option>Small</option>
                       <option>Medium</option>
                       <option>Large</option>
                     </select>
                   </div>
-                  <div class="col-md-4 col-6 mb-3">
-                    <label class="form-label d-block">Quantity</label>
-                    <div class="input-group input-spinner">
-                      <button class="btn btn-icon btn-light" type="button">
+                  <div className="col-md-4 col-6 mb-3">
+                    <label className="form-label d-block">Quantity</label>
+                    <div className="input-group input-spinner">
+                      <button className="btn btn-icon btn-light" type="button">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="22"
@@ -205,11 +211,11 @@ function SingleProduct() {
                         </svg>
                       </button>
                       <input
-                        class="form-control text-center"
+                        className="form-control text-center"
                         placeholder=""
                         value="14"
                       />
-                      <button class="btn btn-icon btn-light" type="button">
+                      <button className="btn btn-icon btn-light" type="button">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="22"
@@ -224,17 +230,17 @@ function SingleProduct() {
                   </div>
                 </div>
 
-                <a href="#" class="btn  btn-warning">
+                <a href="#!" className="btn  btn-warning">
                   {" "}
                   Buy now{" "}
                 </a>
-                <a href="#" class="btn  btn-primary">
+                <a href="#!" className="btn  btn-primary">
                   {" "}
-                  <i class="me-1 fa fa-shopping-basket"></i> Add to cart{" "}
+                  <i className="me-1 fa fa-shopping-basket"></i> Add to cart{" "}
                 </a>
-                <a href="#" class="btn  btn-light">
+                <a href="#!" className="btn  btn-light">
                   {" "}
-                  <i class="me-1 fa fa-heart"></i> Save{" "}
+                  <i className="me-1 fa fa-heart"></i> Save{" "}
                 </a>
               </article>
             </main>
@@ -242,56 +248,56 @@ function SingleProduct() {
         </div>
       </section>
 
-      <section class="padding-y bg-light border-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="card">
-                <header class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
+      <section className="padding-y bg-light border-top">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="card">
+                <header className="card-header">
+                  <ul className="nav nav-tabs card-header-tabs">
+                    <li className="nav-item">
                       <a
-                        href="#"
+                        href="#!"
                         data-bs-target="#tab_specs"
                         data-bs-toggle="tab"
-                        class="nav-link active"
+                        className="nav-link active"
                       >
                         Specification
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
-                        href="#"
+                        href="#!"
                         data-bs-target="#tab_warranty"
                         data-bs-toggle="tab"
-                        class="nav-link"
+                        className="nav-link"
                       >
                         Warranty info
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
-                        href="#"
+                        href="#!"
                         data-bs-target="#tab_shipping"
                         data-bs-toggle="tab"
-                        class="nav-link"
+                        className="nav-link"
                       >
                         Shipping info
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
-                        href="#"
+                        href="#!"
                         data-bs-target="#tab_seller"
                         data-bs-toggle="tab"
-                        class="nav-link"
+                        className="nav-link"
                       >
                         Seller profile
                       </a>
                     </li>
                   </ul>
                 </header>
-                <div class="tab-content">
+                <div className="tab-content">
                   <article
                     id="tab_specs"
                     class="tab-pane show active card-body"
@@ -377,80 +383,84 @@ function SingleProduct() {
                 </div>
               </div>
             </div>
-            <aside class="col-lg-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Similar items</h5>
+            <aside className="col-lg-4">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Similar items</h5>
 
-                  <article class="itemside mb-3">
-                    <a href="#" class="aside">
+                  <article className="itemside mb-3">
+                    <a href="#!" className="aside">
                       <img
                         src="https://godashsports.com/wp-content/uploads/cache/2023/10/On-Cloud-Shoes-Black/3077995554.png"
                         width="96"
                         height="96"
-                        class="img-md img-thumbnail"
+                        className="img-md img-thumbnail"
+                        alt=""
                       />
                     </a>
-                    <div class="info">
-                      <a href="#" class="title mb-1">
+                    <div className="info">
+                      <a href="#!" className="title mb-1">
                         {" "}
                         Rucksack Backpack Large <br /> Line Mounts{" "}
                       </a>
-                      <strong class="price"> $38.90</strong>
+                      <strong className="price"> $38.90</strong>
                     </div>
                   </article>
 
-                  <article class="itemside mb-3">
-                    <a href="#" class="aside">
+                  <article className="itemside mb-3">
+                    <a href="#!" className="aside">
                       <img
                         src="https://5.imimg.com/data5/SELLER/Default/2022/3/AT/JU/NS/145847198/shopee-e15830dd985a18d205c34a5fc3119e1a.jpg"
                         width="96"
                         height="96"
-                        class="img-md img-thumbnail"
+                        classNameName="img-md img-thumbnail"
+                        alt=""
                       />
                     </a>
-                    <div class="info">
-                      <a href="#" class="title mb-1">
+                    <div className="info">
+                      <a href="#!" className="title mb-1">
                         {" "}
                         Summer New Men's Denim <br /> Jeans Shorts{" "}
                       </a>
-                      <strong class="price"> $29.50</strong>
+                      <strong className="price"> $29.50</strong>
                     </div>
                   </article>
 
-                  <article class="itemside mb-3">
-                    <a href="#" class="aside">
+                  <article className="itemside mb-3">
+                    <a href="#!" className="aside">
                       <img
                         src="https://d2j6dbq0eux0bg.cloudfront.net/images/50694034/2123451926.jpg"
                         width="96"
                         height="96"
-                        class="img-md img-thumbnail"
+                        classNameName="img-md img-thumbnail"
+                        alt=""
                       />
                     </a>
-                    <div class="info">
-                      <a href="#" class="title mb-1">
+                    <div className="info">
+                      <a href="#!" className="title mb-1">
                         {" "}
                         T-shirts with multiple colors, for men and lady{" "}
                       </a>
-                      <strong class="price"> $120.00</strong>
+                      <strong className="price"> $120.00</strong>
                     </div>
                   </article>
 
-                  <article class="itemside mb-3">
-                    <a href="#" class="aside">
+                  <article className="itemside mb-3">
+                    <a href="#!" className="aside">
                       <img
                         src="https://d2j6dbq0eux0bg.cloudfront.net/images/50694034/2123437421.jpg"
                         width="96"
                         height="96"
-                        class="img-md img-thumbnail"
+                        className="img-md img-thumbnail"
+                        alt=""
                       />
                     </a>
-                    <div class="info">
-                      <a href="#" class="title mb-1">
+                    <div className="info">
+                      <a href="#!" className="title mb-1">
                         {" "}
                         Blazer Suit Dress Jacket for Men, Blue color{" "}
                       </a>
-                      <strong class="price"> $339.90</strong>
+                      <strong className="price"> $339.90</strong>
                     </div>
                   </article>
                 </div>
