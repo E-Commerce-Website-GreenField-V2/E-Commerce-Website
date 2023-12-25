@@ -1,13 +1,29 @@
-import { useEffect, useState } from "react";
+import { useContext,useEffect, useState } from "react";
 import { Button } from "@mui/material";
-// import "../../style/ProductDetails.css"
+import "../../style/ProductDetails.css";
+import { IconButton } from "@mui/material";
+
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
+import { CartItemsContext } from "../../Context/CartItemsContext";
+import { WishItemsContext } from "../../Context/WishItemsContext.js";
+
 
 
 const ProductDetailsPage = () => {
+  const cartItemsContext = useContext(CartItemsContext);
+  const wishItemsContext = useContext(WishItemsContext);
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [id,setId]=useState(1)
-
+  const handleAddToWishList = () => {
+    wishItemsContext.addItem(product);
+    // console.log(product);
+  };
+  const hanleAddToCart = () => {
+    cartItemsContext.addItem(product, 1);
+    // console.log(props.item);
+  };
   useEffect(() => {
     const fetchProductDetails = async (ProductId) => {
       try {
@@ -25,12 +41,7 @@ const ProductDetailsPage = () => {
   
     fetchProductDetails(id);
   }, [id]);
-  
-  const handleAddToCart = () => {
- 
-    console.log(`Added ${quantity} ${product.name} to the cart.`);
-    
-  };
+
 
   if (!product) {
     return <div>Loading...</div>; 
@@ -52,11 +63,34 @@ const ProductDetailsPage = () => {
       <div className="quantity-selector">
         <Button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</Button>
         <div className="quantity">{quantity}</div>
+        
         <Button onClick={() => setQuantity(quantity + 1)}>+</Button>
       </div>
-
+      <div>
+      <label className="size">Size:</label>
+      <button className="xs">XS</button>
+      <button className="xs">XL</button>
+      <button className="xs">M</button>
+      <button className="xs">L</button>
+      <button className="xs">x</button>
+      </div>
+      <div className="product__card__actio">
+            <IconButton
+              onClick={handleAddToWishList}
+              sx={{
+                borderRadius: "20px",
+                width: "40px",
+                height:
+                  "40px" /* borderWidth: '3px', borderStyle: 'solid', borderColor: '#FFE26E' */,
+              }}
+            >
+              <FavoriteBorderIcon
+                sx={{ width: "22px", height: "22px", color: "black" }}
+              />
+            </IconButton>
+      </div>
       <div className="button">
-        <div className="add-to-cart" onClick={handleAddToCart}>
+        <div className="add-to-cart" onClick={hanleAddToCart}>
           Buy Now
         </div>
       </div>

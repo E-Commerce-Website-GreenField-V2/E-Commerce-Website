@@ -24,6 +24,12 @@ const NavLinks = () => {
           <li className="nav-link">
             <Link to="/category/babies">Babies</Link>
           </li>
+          <li className="nav-link">
+            <Link to="About">About</Link>
+          </li>
+          <li className="nav-link">
+            <Link to="contact">Contact</Link>
+          </li>
         </ul>
       </div>
     </nav>
