@@ -12,8 +12,8 @@ const Product = sequelize.define("Product", {
     allowNull: false,
   },
   image: {
-    type: DataTypes.TEXT("long"),
-    allowNull: false,
+    type: DataTypes.JSON,
+    allowNull: true,
   },
   description: {
     type: DataTypes.TEXT("long"),
@@ -22,7 +22,7 @@ const Product = sequelize.define("Product", {
   available: {
     type: DataTypes.TINYINT,
     allowNull: false,
-    defaultValue: 1, 
+    defaultValue: 1,
   },
   rate: {
     type: DataTypes.INTEGER,

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
-function Cloudinary({ setImages }) {
   const cloudName = "dubduh12x";
   const presetName = "qncgi1tt";
   const [previewImages, setPreviewImages] = useState([]);
+  const [imageUrls, setImageUrls] = useState([]);
+  console.log(imageUrls, "imageUrls");
 
   const handleUpload = async (e) => {
     const files = e.target.files;
@@ -30,7 +31,9 @@ function Cloudinary({ setImages }) {
       );
 
       setPreviewImages((prevImages) => [...prevImages, ...uploadedImages]);
-      setImages((prevImages) => [...prevImages, ...uploadedImages]);
+      setImageUrls((prevUrls) => [...prevUrls, ...uploadedImages]);
+
+      imageUrls((prevImages) => [...prevImages, ...uploadedImages]);
     } catch (error) {
       console.error("Error uploading images: ", error);
     }
@@ -58,34 +61,3 @@ function Cloudinary({ setImages }) {
 }
 
 export default Cloudinary;
-
-// //example of using
-
-// import React, { useState } from "react";
-// import Cloudinary from "./Cloudinary";
-
-// function Addproduct() {
-//   const [image, setImage] = useState("");
-//   const [img, setImg] = useState("");
-
-//   const uploadImage = () => {
-//     // Define the logic to upload the image here
-//     // You can use 'img' state to get the uploaded image URL
-//     console.log("Image uploaded:", img);
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         <Cloudinary setImg={setImg} />
-//         <button onClick={uploadImage}>Upload</button>
-//       </div>
-//       <div>
-//         <h1>Uploaded image will be displayed here</h1>
-//         <img src={img} alt="Uploaded" />
-//       </div>
-//     </div>
-//   );
-// }
-
-//export default Addproduct;
