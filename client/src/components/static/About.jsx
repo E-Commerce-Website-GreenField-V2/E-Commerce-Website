@@ -171,6 +171,30 @@ const About = () => {
         </div>
         <div className="frame-parent1">
           <div className="image-46-wrappe">
+            <img className="image-51-ico" alt="" src="/salmen.jpg" />
+          </div>
+          <div className="frame-parent2">
+            <div className="tom-cruise-paren">
+              <div className="tom-cruis">salmen khlifi</div>
+              <div className="founder-chairma">Scrum master</div>
+            </div>
+            <div className="icon-twitter-paren">
+              <img className="dropdown-ico" alt="" src="/icontwitter@2x.png" />
+              <img
+                className="dropdown-ico"
+                alt=""
+                src="/iconinstagram@2x.png"
+              />
+              <img
+                className="dropdown-ico"
+                alt=""
+                src="/iconlinkedin@2x.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="frame-parent1">
+          <div className="image-46-wrappe">
             <img className="image-47-ico" alt="" src="/gzgz.jpg" />
           </div>
           <div className="frame-parent2">
