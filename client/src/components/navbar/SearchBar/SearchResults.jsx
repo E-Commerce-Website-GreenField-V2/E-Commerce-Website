@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import "./popup.css";
-import { Link } from "react-router-dom";
 
 const SearchResults = ({ results }) => {
   const popupRef = useRef(null);
@@ -11,19 +10,15 @@ const SearchResults = ({ results }) => {
 
   return (
     <div className="popup" ref={popupRef}>
-      <div className="">
+      <div className="popup-content">
         {results.map((result, i) => (
           <div key={i} className="result-item">
             <p>
               <img
                 src={result.image.slice(1, result.image.length - 1)}
                 alt=""
-              />
-              <Link to={`/singleProduct/${result.id}`}>
-                 {result.name} {result.price }Dt
-              </Link>
-              
-             
+              />{" "}
+              {result.name} {result.price}Dt
             </p>
           </div>
         ))}
