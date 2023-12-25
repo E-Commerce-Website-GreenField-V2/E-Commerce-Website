@@ -12,8 +12,10 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const CartCard = (props) => {
+  // console.log("img: ", props.item.image);
+  //props : items[0]
   let cartItems = useContext(CartItemsContext);
-  const [size, setSize] = useState(props.item.size[0]);
+  // const [size, setSize] = useState(props.item.size[0]);
 
   const handelQuantityIncrement = (event) => {
     cartItems.quantity(props.item.id, "INC");
@@ -29,16 +31,16 @@ const CartCard = (props) => {
     cartItems.removeItem(props.item);
   };
 
-  const handleSizeChange = (event) => {
-    setSize(event.target.value);
-  };
+  // const handleSizeChange = (event) => {
+  //   setSize(event.target.value);
+  // };
 
   return (
     <div className="cart__item__card">
       <div className="cart__item__detail">
         <div className="cart__item__image">
           <img
-            src={`https://shema-ecommerce.herokuapp.com/${props.item.category}/${props.item.image[0].filename}`}
+            src={props.item.image}
             alt="item"
             className="item__image"
           />
@@ -56,7 +58,7 @@ const CartCard = (props) => {
           <RemoveCircleIcon fontSize="medium" />
         </IconButton>
       </div>
-      <div className="product size">
+      {/* <div className="product size">
         <Box sx={{ minWidth: 80 }}>
           <FormControl fullWidth size="small">
             <InputLabel>Size</InputLabel>
@@ -67,7 +69,7 @@ const CartCard = (props) => {
             </Select>
           </FormControl>
         </Box>
-      </div>
+      </div> */}
       <div className="cart__item__price">${props.item.price}</div>
       <div className="remove__item__icon">
         <IconButton>

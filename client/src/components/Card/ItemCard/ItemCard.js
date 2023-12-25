@@ -50,7 +50,7 @@ const ItemCard = ({product}) => {
             </Link> */}
           </div>
           <div className="product__description">
-            <span>{product.description}</span>
+            <span>{product.name}</span>
           </div>
           <div className="product__price">
             <span>${product.price}</span>

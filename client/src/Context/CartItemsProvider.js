@@ -6,11 +6,11 @@ const CartItemsProvider = (props) => {
   const [totalAmountOfItems, setTotalAmountOfItems] = useState(0);
 
   const addToCartHandler = (item, quantity) => {
-    const { id, name, price, image, size } = item;
+    const { id, name, price, image } = item;
     removeFromCartHandler(item);
     setCartItems((prevItems) => [
       ...prevItems,
-      { id, name, price, image, itemQuantity: quantity, size },
+      { id, name, price, image, itemQuantity: quantity },
     ]);
   };
 

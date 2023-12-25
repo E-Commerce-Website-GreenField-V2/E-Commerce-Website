@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import { WishItemsContext } from '../../../Context/WishItemsContext';
 
 const WishCard = (props) => {
-
+    console.log("oneItem", props.item);
     const wishItems = useContext(WishItemsContext)
 
     const handelRemoveItem = () => {
@@ -25,7 +25,7 @@ const WishCard = (props) => {
                 </IconButton>
             </div>
             <div className="wish__item__image">
-                <img src={`https://shema-ecommerce.herokuapp.com/${props.item.category}/${props.item.image[0].filename}`} alt="item" className="wish__image"/>
+                <img src={props.item.image} alt="item" className="wish__image"/>
             </div>
             <div className="wish__item__name">{props.item.name}</div>
             <div className="wish__item__price">${props.item.price}</div>
