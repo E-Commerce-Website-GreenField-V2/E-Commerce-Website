@@ -123,11 +123,13 @@ const About = () => {
       <div className="frame-containe">
         <div className="frame-parent1">
           <div className="image-46-wrappe">
+
             <img className="image-46-ico" alt="" src="/download.jfif" />
           </div>
           <div className="frame-parent2">
             <div className="tom-cruise-paren">
               <div className="tom-cruise">Ali maatoug</div>
+
               <div className="founder-chairma">{`Founder & Chairman`}</div>
             </div>
             <div className="icon-twitter-paren">
@@ -147,11 +149,15 @@ const About = () => {
         </div>
         <div className="frame-parent1">
           <div className="image-46-wrappe">
+
             <img className="image-51-ico" alt="" src="/louay.jpg" />
           </div>
           <div className="frame-parent2">
             <div className="tom-cruise-paren">
               <div className="tom-cruis">louay sakli</div>
+
+          
+
               <div className="founder-chairma">Managing Director</div>
             </div>
             <div className="icon-twitter-paren">
@@ -171,6 +177,7 @@ const About = () => {
         </div>
         <div className="frame-parent1">
           <div className="image-46-wrappe">
+
             <img className="image-51-ico" alt="" src="/salmen.jpg" />
           </div>
           <div className="frame-parent2">
@@ -200,6 +207,9 @@ const About = () => {
           <div className="frame-parent2">
             <div className="tom-cruise-paren">
               <div className="tom-cruis">Amine guezmir</div>
+
+            
+
               <div className="founder-chairma">Product Designer</div>
             </div>
             <div className="icon-twitter-paren">
@@ -230,3 +240,4 @@ const About = () => {
 };
 
 export default About;
+

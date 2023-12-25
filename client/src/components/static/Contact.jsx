@@ -1,7 +1,10 @@
-import React  from "react";
+import React from "react";
 import "../../style/Contact.css";
 
 const Contact = () => {
+  return (
+    <div className="contact">
+      <img className="contact-child" alt="" src="/line-3@2x.png" />
 
 	return (
 	  <div className="contact">
@@ -71,5 +74,7 @@ const Contact = () => {
 	  </div>
 	);
   };
+
+    
 
 export default Contact;

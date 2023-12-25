@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/authentification/Login.jsx";
@@ -28,9 +28,13 @@ import Home from "./routes/Home.jsx";
 import ItemView from "./routes/ItemView.jsx";
 import Wishlist from "./components/Wishlist/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import FormDateRangeField from "./components/FormDateRangeField.jsx";
+// import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
+import ProductPage from "./components/OneProduct/OneProduct.jsx";
+import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
+
 function App() {
-  
+  const [results, setResults] = useState([]);
+  console.log(results, "results");
   return (
     <AuthProvider>
       <UserIdProvider>
@@ -39,11 +43,14 @@ function App() {
             <FeaturedCategoriesProvider>
             <Router>
               <Header />
-              
+              {/* <SearchResults results={results} /> */}
+
               <Routes>
-              <Route path="/contact" element={<Contact />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route index element={<Home />} />
                 <Route path="addProducts" element={<AddProducts />} />
+                <Route path="/singleProduct" element={<ProductPage />} />
+
                 {/* <Route
                   path="dormDateRangeField"
                   element={<FormDateRangeField />}
@@ -76,11 +83,10 @@ function App() {
                 <Route path="/wishlist" element={<Wishlist />} />
                 {/* <Route path="/search/*" element={<SearchView />} /> */}
 
-                
                 <Route path="/about" element={<About />} />
                 {/* <Route path="*" element={<NotFound />} /> */}
               </Routes>
-              
+
               <Routes>
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/ProductDetails" element={<ProductDetails />} />

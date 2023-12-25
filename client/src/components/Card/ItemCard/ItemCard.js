@@ -7,7 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { WishItemsContext } from "../../../Context/WishItemsContext";
 import { CartItemsContext } from "../../../Context/CartItemsContext";
 
-const ItemCard = ({product}) => {
+const ItemCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
@@ -36,11 +36,7 @@ const ItemCard = ({product}) => {
         >
       
           {product.image && product.image.length > 0 && (
-            <img
-              src= {product.image}
-              alt="item"
-              className="product__img"
-            />
+            <img src={product.image} alt="item" className="product__img" />
           )}
         </div>
         <div className="product__card__detail">

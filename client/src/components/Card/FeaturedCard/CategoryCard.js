@@ -11,6 +11,7 @@ const CategoryCard = ({category}) => {
       <div className="category__card__detail">
         <div className="category__name">
           <span>{category.name}</span>
+         
         </div>
         <div className="category__card__action">
           <Link key={category.id} to={`/category/${category.name.toLowerCase()}`}>
