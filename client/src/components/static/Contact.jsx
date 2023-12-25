@@ -13,28 +13,25 @@ const Contact = () => {
 			  <div className="placebox-inf">
 				<div className="place-to-info-bo" />
 				<div className="md">
-				  <span>{`Your Name `}</span>
-				  <span className="span">*</span>
+				     <input type="text" className="span" placeholder="your name"></input>
 				</div>
 			  </div>
 			  <div className="placebox-inf">
 				<div className="place-to-info-bo" />
 				<div className="md">
-				  <span>{`Your Email `}</span>
-				  <span className="span">*</span>
+				<input type="text" className="span" placeholder="email@gmail.com"></input>
 				</div>
 			  </div>
 			  <div className="placebox-inf">
 				<div className="place-to-info-bo" />
 				<div className="md">
-				  <span>{`Your Phone `}</span>
-				  <span className="span">*</span>
+				<input type="text" className="span" placeholder="216:+++"></input>
 				</div>
 			  </div>
 			</div>
 			<div className="placebox-info3">
 			  <div className="place-to-info-bo1" />
-			  <div className="md">Your Massage</div>
+			  <input type="text" className="md" placeholder="your message"></input>
 			</div>
 			<div className="bt">
 			  <div className="view-all-product">Send Massage</div>
