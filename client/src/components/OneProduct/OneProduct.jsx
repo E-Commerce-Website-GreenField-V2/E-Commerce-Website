@@ -1,4 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { CartItemsContext } from "../../Context/CartItemsContext";
+import { WishItemsContext } from "../../Context/WishItemsContext.js";
 import "../OneProduct/oneProduct.css";
 function SingleProduct() {
   // const [images, setImages] = useState({
@@ -7,35 +10,41 @@ function SingleProduct() {
   //   img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
   //   img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
   // });
+  const { productId } = useParams();
 
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  const [id, setId] = useState("");
   const [activeImg, setActiveImage] = useState(product.image);
+  const cartItemsContext = useContext(CartItemsContext);
+  const wishItemsContext = useContext(WishItemsContext);
+  const hanleAddToCart = () => {
+    cartItemsContext.addItem(product, 1);
+    // console.log(props.item);
+  };
+  const handleAddToWishList = () => {
+    wishItemsContext.addItem(product);
+    // console.log(product);
+  };
 
   useEffect(() => {
-    const fetchProductDetails = async (ProductId) => {
+    const fetchProductDetails = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/products/${ProductId}`
+          `http://127.0.0.1:8000/products/${productId}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const responseData = await response.json();
         setProduct(responseData);
-        setId(59);
+
         console.log(responseData);
       } catch (error) {
         console.error(error);
       }
     };
-    fetchProductDetails(id);
-  }, [id]);
-
-  const handleAddToCart = () => {
-    console.log(`Added ${quantity} ${product.name} to the cart.`);
-  };
+    fetchProductDetails();
+  }, [productId]);
 
   if (!product) {
     return <div>Loading...</div>;
@@ -82,7 +91,7 @@ function SingleProduct() {
                     data-type="image"
                     // href="assets/images/items/10.webp"
                   >
-                    <img height="560" src={product.image} />
+                    <img height="560" src={activeImg} />
                   </a>
                 </div>
                 <div class="thumbs-wrap">
@@ -259,11 +268,15 @@ function SingleProduct() {
                   {" "}
                   Buy now{" "}
                 </a>
-                <a href="#" class="btn  btn-primary" onClick={handleAddToCart}>
+                <a href="#" class="btn  btn-primary" onClick={hanleAddToCart}>
                   {" "}
                   <i class="me-1 fa fa-shopping-basket"></i> Add to cart{" "}
                 </a>
-                <a href="#" class="btn  btn-light">
+                <a
+                  href="#"
+                  class="btn  btn-light"
+                  onClick={handleAddToWishList}
+                >
                   {" "}
                   <i class="me-1 fa fa-heart"></i> Save{" "}
                 </a>
@@ -411,7 +424,7 @@ function SingleProduct() {
             <aside class="col-lg-4">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Similar items</h5>
+                  <h5 class="card-title">Other items you may like : </h5>
 
                   <article class="itemside mb-3">
                     <a href="#" class="aside">

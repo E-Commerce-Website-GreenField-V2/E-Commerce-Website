@@ -1,5 +1,6 @@
 import "./ItemCard.css";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -12,6 +13,7 @@ const ItemCard = ({ product }) => {
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
   //props.id = category .id
+  const navigate = useNavigate();
   console.log("product", product);
 
   // const getProduct
@@ -26,6 +28,10 @@ const ItemCard = ({ product }) => {
     // console.log(props.item);
   };
 
+  const handleNavigate = () => {
+    navigate(`/singleProduct/${product.id}`);
+  };
+
   return (
     <div className="product__card__card">
       <div className="product__card">
@@ -33,6 +39,7 @@ const ItemCard = ({ product }) => {
           className="product__image"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          onClick={handleNavigate}
         >
           {product.image && product.image.length > 0 && (
             <img src={product.image} alt="item" className="product__img" />

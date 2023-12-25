@@ -48,7 +48,10 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route index element={<Home />} />
                   <Route path="addProducts" element={<AddProducts />} />
-                  <Route path="/singleProduct" element={<ProductPage />} />
+                  <Route
+                    path="/singleProduct/:productId"
+                    element={<ProductPage />}
+                  />
 
                   {/* <Route
                   path="dormDateRangeField"
