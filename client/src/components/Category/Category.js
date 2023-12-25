@@ -13,13 +13,17 @@ import axios from "axios";
 const Category = ({ products }) => {
   const categoryID = products[0].id;
   const [items, setItems] = useState([]);
+  const [allItems, setAllItems] = useState([]); 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`http://localhost:8000/products/category/${categoryID}`)
       .then((res) => {
-        setItems(res.data);
+        const sortedProducts = res.data.sort((a, b) => b.rate - a.rate);
+        const topFourProducts = sortedProducts.slice(0, 4);
+        setItems(topFourProducts);
+        setAllItems(sortedProducts); // Set all products in a separate state
         setLoading(false);
       })
       .catch((err) => console.error(err));
@@ -36,6 +40,10 @@ const Category = ({ products }) => {
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
+  };
+
+  const handleShowMore = () => {
+    setItems(allItems); // Set items to all products when "Show more" is clicked
   };
 
   return (
@@ -105,6 +113,7 @@ const Category = ({ products }) => {
                       },
                     },
                   ]}
+                  onClick={handleShowMore} // Call handleShowMore when the button is clicked
                 >
                   Show more
                 </Button>
@@ -116,5 +125,6 @@ const Category = ({ products }) => {
     </div>
   );
 };
+
 
 export default Category;

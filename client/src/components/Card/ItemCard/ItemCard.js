@@ -14,7 +14,7 @@ const ItemCard = ({ product }) => {
   const wishItemsContext = useContext(WishItemsContext);
   //props.id = category .id
   const navigate = useNavigate();
-  console.log("product", product);
+  console.log("imaage", product.image.slice(1, product.image.length - 1));
 
   // const getProduct
 
@@ -53,9 +53,6 @@ const ItemCard = ({ product }) => {
         </div>
         <div className="product__card__detail">
           <div className="product__name">
-            {/* <Link to={`/singleProduct`}> // link to one product component
-              {product.name}
-            </Link> */}
           </div>
           <div className="product__description">
             <span>{product.name}</span>
