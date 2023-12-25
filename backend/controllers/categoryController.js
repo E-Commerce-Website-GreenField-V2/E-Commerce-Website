@@ -28,10 +28,9 @@ const getCategoryById = async (req, res) => {
   }
 };
 const createCategory = async (req, res) => {
-  const { name } = req.body;
 
   try {
-    const category = await Category.create({ name });
+    const category = await Category.create(req.body);
 
     res.status(201).json(category);
   } catch (error) {

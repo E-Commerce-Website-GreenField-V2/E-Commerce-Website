@@ -1,6 +1,6 @@
 import "./Category.css";
 import ItemCard from "../Card/ItemCard/ItemCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -8,9 +8,24 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { TabTitle } from "../../utils/genral";
 import { Button } from "@mui/material";
+import axios from "axios";
 
-const Category = (props) => {
-  TabTitle(props.name);
+const Category = ({ products }) => {
+  const categoryID = products[0].id;
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/products/category/${categoryID}`)
+      .then((res) => {
+        setItems(res.data);
+        setLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, [categoryID]);
+
+  TabTitle(products[0].name);
 
   const [show, setShow] = useState("All");
   const [filter, setFilter] = useState("Latest");
@@ -29,7 +44,7 @@ const Category = (props) => {
         <div className="category__header__container">
           <div className="category__header__big">
             <div className="category__header">
-              <h2>{props.name}</h2>
+              <h2>{products[0].name}'s Fashion</h2>
             </div>
             <div className="category__header__line"></div>
           </div>
@@ -63,35 +78,39 @@ const Category = (props) => {
           </div>
         </div>
         <div className="category__card__container">
-          <div className="category__product__card">
-            {props.items.map((data) => (
-              <ItemCard item={data} category={props.category} />
-            ))}
-            <div className="show__more__action">
-              <Button
-                variant="outlined"
-                sx={[
-                  {
-                    width: "200px",
-                    height: "50px",
-                    borderRadius: "20px",
-                    fontWeight: "700",
-                    backgroundColor: "#FFE26E",
-                    borderColor: "#FFE26E",
-                    color: "black",
-                  },
-                  {
-                    "&:hover": {
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <div className="category__product__card">
+              {items.map((data) => (
+                <ItemCard key={data.id} product={data} category={products[0].category} />
+              ))}
+              <div className="show__more__action">
+                <Button
+                  variant="outlined"
+                  sx={[
+                    {
+                      width: "200px",
+                      height: "50px",
+                      borderRadius: "20px",
+                      fontWeight: "700",
+                      backgroundColor: "#FFE26E",
                       borderColor: "#FFE26E",
-                      backgroundColor: "none",
+                      color: "black",
                     },
-                  },
-                ]}
-              >
-                Show more
-              </Button>
+                    {
+                      "&:hover": {
+                        borderColor: "#FFE26E",
+                        backgroundColor: "none",
+                      },
+                    },
+                  ]}
+                >
+                  Show more
+                </Button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
