@@ -3,35 +3,27 @@ import { useParams } from "react-router-dom";
 import { CartItemsContext } from "../../Context/CartItemsContext";
 import { WishItemsContext } from "../../Context/WishItemsContext.js";
 import "../OneProduct/oneProduct.css";
+import axios from "axios"
+
 function SingleProduct() {
-  // const [images, setImages] = useState({
-  //   img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  //   img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  //   img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  //   img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  // });
+  
   const { productId } = useParams();
 
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  const [activeImg, setActiveImage] = useState(product.image);
+  
+
+
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
-  const hanleAddToCart = () => {
-    cartItemsContext.addItem(product, 1);
-    // console.log(props.item);
-  };
-  const handleAddToWishList = () => {
-    wishItemsContext.addItem(product);
-    // console.log(product);
-  };
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(
-          `http://127.0.0.1:8000/products/${productId}`
-        );
+
+        const response = await axios.get(`http://127.0.0.1:8000/products/${productId}`);
+        setProduct(response.data);
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -40,16 +32,35 @@ function SingleProduct() {
         console.log("data", product);
 
         console.log(responseData);
+
       } catch (error) {
         console.error(error);
       }
     };
     fetchProductDetails();
-  }, [productId]);
+  }, []);
+  
+  const hanleAddToCart = () => {
+    cartItemsContext.addItem(product, 1);
+  };
+  const handleAddToWishList = () => {
+    wishItemsContext.addItem(product);
+  };
+
 
   if (!product) {
     return <div>Loading...</div>;
   }
+
+const Img = product.image ? product.image.slice(1, -1) : null;
+const [activeImg, setActiveImage] = useState(null);
+
+useEffect(() => {
+  setActiveImage(Img);
+
+}, [Img]);
+
+
   const formattedPrice =
     product.price !== undefined && typeof product.price === "number"
       ? `$${product.price.toFixed(2)}`
@@ -90,7 +101,6 @@ function SingleProduct() {
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
-                    // href="assets/images/items/10.webp"
                   >
                     <img height="560" src={activeImg} />
                   </a>
@@ -99,65 +109,37 @@ function SingleProduct() {
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
-                    // href="assets/images/items/10.webp"
                     class="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
-                      src={product.img1}
-                      onClick={() => setActiveImage(product.img1)}
+                      src={product.img2?.slice(1, -1)}
+                      onClick={() => setActiveImage(product.img2?.slice(1, -1))}
                     />
                   </a>
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
-                    // href="assets/images/items/10.webp"
                     class="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
-                      src={product.img2}
-                      onClick={() => setActiveImage(product.img2)}
+                      src={product.img3?.slice(1, -1)}
+                      onClick={() => setActiveImage(product.img3?.slice(1, -1))}
                     />
                   </a>
                   <a
                     data-fslightbox="mygalley"
                     data-type="image"
-                    // href="assets/images/items/10.webp"
                     class="item-thumb"
                   >
                     <img
                       width="60"
                       height="60"
-                      src={product.img3}
-                      onClick={() => setActiveImage(product.img3)}
-                    />
-                  </a>
-                  <a
-                    data-fslightbox="mygalley"
-                    data-type="image"
-                    // href="assets/images/items/10.webp"
-                    class="item-thumb"
-                  >
-                    <img
-                      width="60"
-                      height="60"
-                      src={product.img4}
-                      onClick={() => setActiveImage(product.img4)}
-                    />
-                  </a>
-                  <a
-                    data-fslightbox="mygalley"
-                    data-type="image"
-                    // href="assets/images/items/10.webp"
-                    class="item-thumb"
-                  >
-                    <img
-                      width="60"
-                      height="60"
-                      src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png"
+                      src={product.img4?.slice(1, -1)}
+                      onClick={() => setActiveImage(product.img4?.slice(1, -1))}
                     />
                   </a>
                 </div>
@@ -166,8 +148,7 @@ function SingleProduct() {
             <main class="col-lg-6">
               <article class="ps-lg-3">
                 <h4 class="title text-dark">
-                  Quality Men's Sneaker for Sports, Men's Fashion <br /> Casual
-                  Sneakers{" "}
+                  {product.name}
                 </h4>
                 <div class="rating-wrap my-3">
                   <ul class="rating-stars">
@@ -191,10 +172,6 @@ function SingleProduct() {
                     Rate : {product.rate}
                   </b>
                   <i class="dot"></i>
-                  <span class="label-rating text-muted">
-                    {" "}
-                    <i class="fa fa-shopping-basket"></i> 154 orders{" "}
-                  </span>
                   <i class="dot"></i>
                   <span class="label-rating text-success">In stock</span>
                 </div>
@@ -205,6 +182,7 @@ function SingleProduct() {
                 </div>
 
                 <p>{product.description}</p>
+
 
                 {/* <dl class="row">
                   <dt class="col-3">Type:</dt>
@@ -289,6 +267,8 @@ function SingleProduct() {
           </div>
         </div>
       </section>
+
+
 
       {/* <section class="padding-y bg-light border-top">
         <div class="container">
@@ -514,3 +494,5 @@ function SingleProduct() {
   );
 }
 export default SingleProduct;
+
+

@@ -12,7 +12,8 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const CartCard = (props) => {
-  // console.log("img: ", props.item.image);
+  console.log("img1: ", props.item.image);
+  
   //props : items[0]
   let cartItems = useContext(CartItemsContext);
   // const [size, setSize] = useState(props.item.size[0]);
@@ -40,7 +41,7 @@ const CartCard = (props) => {
       <div className="cart__item__detail">
         <div className="cart__item__image">
           <img
-            src={props.item.image}
+            src={props.item.image.slice(1, props.item.image.length - 1)}
             alt="item"
             className="item__image"
           />

@@ -30,10 +30,14 @@ import Wishlist from "./components/Wishlist/index.js";
 import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
+
+import OneProduct from "./components/OneProduct/OneProduct.jsx";
+
 import ProductPage from "./components/OneProduct/OneProduct.jsx";
 import Payment from "./components/Payment/Payment.jsx";
 import Success from "./components/Payment/Success.jsx";
 import Fail from "./components/Payment/Fail.jsx";
+
 
 function App() {
   const [results, setResults] = useState([]);
@@ -53,7 +57,7 @@ function App() {
                   <Route path="addProducts" element={<AddProducts />} />
                   <Route
                     path="/singleProduct/:productId"
-                    element={<ProductPage />}
+                    element={<OneProduct/>}
                   />
 
                   {/* <Route
