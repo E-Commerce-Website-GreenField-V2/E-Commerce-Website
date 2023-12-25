@@ -41,12 +41,15 @@ function App() {
             <FeaturedCategoriesProvider>
               <Router>
                 <Header />
-                {/* <SearchBar setResults={setResults} /> */}
                 {/* <SearchResults results={results} /> */}
+
                 <Routes>
                   <Route path="/contact" element={<Contact />} />
                   <Route index element={<Home />} />
                   <Route path="addProducts" element={<AddProducts />} />
+                  <Route path="/singleProduct" element={<ProductPage />} />
+
+
                   {/* <Route
                   path="dormDateRangeField"
                   element={<FormDateRangeField />}
@@ -76,6 +79,7 @@ function App() {
                       <Route path=":id" element={<ItemView />} />
                     </Route>
                   </Route>
+
                   <Route path="/wishlist" element={<Wishlist />} />
                   {/* <Route path="/search/*" element={<SearchView />} /> */}
 
