@@ -9,22 +9,29 @@ const CategoryView = () => {
   const [menItems, setMenItems] = useState();
   const [womenItems, setWomenItems] = useState();
   const [kidsItems, setKidsItems] = useState();
+  const [babiesItems, setBabiesItems] = useState();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // you cann add other categories
     axios
-      .get("http://localhost:8000/categories/")
-      .then((res) => {
-        setMenItems(res.data.filter((item) => item.category === "men"));
-        setKidsItems(res.data.filter((item) => item.category === "kids"));
-        setWomenItems(res.data.filter((item) => item.category === "women"));
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
+    .get("http://localhost:8000/categories/")
+    .then((res) => {
+      setMenItems(res.data.filter((item) => item.name === "Men"))
+      setKidsItems(res.data.filter((item) => item.name === "Kids"));
+      setWomenItems(res.data.filter((item) => item.name === "Women"));
+      setBabiesItems(res.data.filter((item) => item.name === "Babies"));
+      // console.log("id", res.data);
+      setLoading(false);
+    })
+    .catch((err) => console.log(err));
 
-    window.scrollTo(0, 0);
-  }, [param.id]);
+  window.scrollTo(0, 0);
+}, [param.id]);
+  console.log("menID",menItems);
+  
+
 
   return (
     <div className="d-flex min-vh-100 w-100 justify-content-center align-items-center m-auto">
@@ -38,13 +45,16 @@ const CategoryView = () => {
         />
       )}
       {menItems && param.id === "men" && (
-        <Category name="Men's Fashion" items={menItems} category="men" />
+        <Category name="Men's Fashion" products={menItems} category="men" />
       )}
-      {womenItems && param.id === "kids" && (
-        <Category name="Kids Fashion" items={kidsItems} category="kids" />
+      {womenItems && param.id === "women" && (
+        <Category name="Kids Fashion" products={womenItems} category="women" />
       )}
-      {kidsItems && param.id === "women" && (
-        <Category name="Women's Fashion" items={womenItems} category="women" />
+      {kidsItems && param.id === "kids" && (
+        <Category name="Women's Fashion" products={kidsItems} category="kids" />
+      )}
+      {babiesItems && param.id === "babies" && (
+        <Category name="Babies's Fashion" products={babiesItems} category="men" />
       )}
     </div>
   );

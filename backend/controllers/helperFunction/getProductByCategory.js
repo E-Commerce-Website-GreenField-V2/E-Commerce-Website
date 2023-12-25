@@ -11,7 +11,7 @@ const getProductsByCategory = async (categoryId) => {
     if (!category) {
       return { error: 'Category not found' };
     }
-
+    console.log("category: ", category);
     const products = category.Products;
 
     return products;
@@ -22,3 +22,24 @@ const getProductsByCategory = async (categoryId) => {
 };
 
 module.exports = getProductsByCategory;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

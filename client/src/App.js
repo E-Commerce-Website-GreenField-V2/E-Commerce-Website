@@ -13,6 +13,8 @@ import { AuthProvider } from "./Context/authContext.jsx";
 import WishItemsProvider from "./Context/WishItemsProvider.js";
 import CartItemsProvider from "./Context/CartItemsProvider.js";
 import { UserIdProvider } from "./Context/userContext.js";
+import { FeaturedCategoriesProvider } from "./Context/FeaturedCategoryContext.js";
+
 import ManageAccount from "./components/Account/ManageAccount/ManageAccount.js";
 import MyAccount from "./components/Account/MyAccount/MyAccount.js";
 import Shop from "../src/components/Shop/Shop.js";
@@ -36,6 +38,7 @@ function App() {
       <UserIdProvider>
         <CartItemsProvider>
           <WishItemsProvider>
+            <FeaturedCategoriesProvider>
             <Router>
               <Header />
               <SearchBar setResults={setResults} />
@@ -86,6 +89,7 @@ function App() {
               </Routes>
               <Footer />
             </Router>
+            </FeaturedCategoriesProvider>
           </WishItemsProvider>
         </CartItemsProvider>
       </UserIdProvider>

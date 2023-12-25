@@ -6,6 +6,7 @@ import ReactLoading from "react-loading";
 
 const ShopCategory = ({ category }) => {
   const categoryId = category.id;
+  // console.log("id",categoryId);done
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState(null);
 

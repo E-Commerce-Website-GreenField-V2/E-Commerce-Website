@@ -50,6 +50,18 @@ const Product = sequelize.define("Product", {
       key: "id",
     },
   },
+  img2: {
+    type: DataTypes.TEXT("long"),
+    allowNull: false,
+  },
+  img3: {
+    type: DataTypes.TEXT("long"),
+    allowNull: false,
+  },
+  img4: {
+    type: DataTypes.TEXT("long"),
+    allowNull: false,
+  },
 });
 
 module.exports = Product;

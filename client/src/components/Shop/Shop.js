@@ -1,29 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { TabTitle } from "../../../src/utils/genral";
-import axios from "axios";
 import ShopCategory from "./Container/ShopCategory";
 import "./Shop.css";
 import ReactLoading from "react-loading";
+import { useFeaturedCategories } from "../../Context/FeaturedCategoryContext.js";
 
 const Shop = () => {
   TabTitle("Shop");
-  const [categories, setCategories] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { featuredCategories } = useFeaturedCategories();
+  // console.log("featr", featuredCategories); get well from global context
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/categories/")
-      .then((res) => {
-        setCategories(res.data)
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="shop__contianer">
-      {loading && (
+      {featuredCategories ? (
+        featuredCategories.map((category) => (
+          <ShopCategory key={category.id} name={category.name} category={category} />
+        ))
+      ) : (
         <ReactLoading
           type="balls"
           color="#6c757d"
@@ -32,9 +29,6 @@ const Shop = () => {
           className="container h-100 w-10 justify-self-center align-self-center m-auto"
         />
       )}
-      {categories && categories.map((category) => (
-        <ShopCategory key={category.id} name={category.name} category={category} />
-      ))}
     </div>
   );
 };
