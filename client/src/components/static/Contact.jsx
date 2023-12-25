@@ -3,48 +3,48 @@ import "../../style/Contact.css";
 
 const Contact = () => {
   return (
-    <div className="contact">
-      <img className="contact-child" alt="" src="/line-3@2x.png" />
+    <div className="contac">
+      <img className="contac-child" alt="" src="/line-3@2x.png" />
 
-      <div className="contact-inne">
-        <div className="frame-grou">
+      <div className="contac-inne">
+        <div className="frame-gro">
           <div className="placebox-info-paren">
-            <div className="placebox-inf">
-              <div className="place-to-info-bo" />
-              <div className="md">
+            <div className="placebox-in">
+              <div className="place-to-info-b" />
+              <div className="m">
                 <input
                   type="text"
-                  className="span"
+                  className="spa"
                   placeholder="your name"
                 ></input>
               </div>
             </div>
-            <div className="placebox-inf">
-              <div className="place-to-info-bo" />
-              <div className="md">
+            <div className="placebox-in">
+              <div className="place-to-info-b" />
+              <div className="m">
                 <input
                   type="text"
-                  className="span"
+                  className="spa"
                   placeholder="email@gmail.com"
                 ></input>
               </div>
             </div>
-            <div className="placebox-inf">
-              <div className="place-to-info-bo" />
-              <div className="md">
+            <div className="placebox-in">
+              <div className="place-to-info-b" />
+              <div className="m">
                 <input
                   type="text"
-                  className="span"
+                  className="spa"
                   placeholder="216:+++"
                 ></input>
               </div>
             </div>
           </div>
           <div className="placebox-info3">
-            <div className="place-to-info-bo1" />
+            <div className="place-to-info-b1" />
             <input
               type="text"
-              className="md"
+              className="m"
               placeholder="your message"
             ></input>
           </div>
@@ -53,9 +53,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="frame-di">
-        <div className="frame-containe">
-          <div className="logo-grou">
+      <div className="frame-d">
+        <div className="frame-contain">
+          <div className="logo-gro">
             <div className="icons-phone-paren">
               <img className="icons-phon" alt="" src="/iconsphone@2x.png" />
               <div className="view-all-product">Call To Us</div>
@@ -68,7 +68,7 @@ const Contact = () => {
             </div>
           </div>
           <img className="underline-icon1" alt="" src="/underline@2x.png" />
-          <div className="logo-grou">
+          <div className="logo-gro">
             <div className="icons-phon-paren">
               <img className="icons-mai" alt="" src="/iconsmail@2x.png" />
               <div className="view-all-product">Write To US</div>
