@@ -8,6 +8,7 @@ const usersRouter = require("./routes/userRoutes.js");
 const { authenticateUser } = require("./middelwares/auth.js");
 const authRoute = require("./routes/authRoute.js");
 const categoryRoutes = require("./routes/categoryRoute.js");
+const paymentRoute = require("./routes/payment.js");
 
 app.use(express.json());
 
@@ -23,6 +24,7 @@ app.use("/auth", authRoute);
 app.use("/categories", categoryRoutes);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
+app.use("/payment", paymentRoute);
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
