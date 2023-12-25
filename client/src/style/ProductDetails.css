@@ -1,4 +1,4 @@
-/* ProductDetails.css */
+ProductDetails.css
 
 .product-details-page {
   max-width: 800px;
@@ -72,7 +72,6 @@ main {
 footer { 
   padding: 10px;
   text-align: center;
-  position: fixed;
   bottom: 0;
   width: 100%;
 }

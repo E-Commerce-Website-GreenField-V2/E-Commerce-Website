@@ -46,12 +46,12 @@
 
 .product__name {
     height: 30%;
-    width: 100%;
-    display: flex;
+
+    
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: small;
+    
 }
 
 .product__description {
@@ -82,5 +82,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    
+    top: 48px;  
+    margin-right: 100px;
+    
     padding: 0px 5px;
 }
