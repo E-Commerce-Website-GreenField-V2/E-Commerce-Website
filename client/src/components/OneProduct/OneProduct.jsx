@@ -37,7 +37,6 @@ function SingleProduct() {
         }
         const responseData = await response.json();
         setProduct(responseData);
-        console.log("data", product);
 
         console.log(responseData);
       } catch (error) {
@@ -206,7 +205,7 @@ function SingleProduct() {
 
                 <p>{product.description}</p>
 
-                {/* <dl class="row">
+                <dl class="row">
                   <dt class="col-3">Type:</dt>
                   <dd class="col-9">Regular</dd>
 
@@ -218,7 +217,7 @@ function SingleProduct() {
 
                   <dt class="col-3">Brand</dt>
                   <dd class="col-9">Reebook </dd>
-                </dl> */}
+                </dl>
 
                 <hr />
 
@@ -232,10 +231,7 @@ function SingleProduct() {
                     </select>
                   </div>
                   <div class="col-md-4 col-6 mb-3">
-                    <label class="form-label d-block">
-                      {" "}
-                      Quantity :{product.quantity}
-                    </label>
+                    <label class="form-label d-block">{product.quantity}</label>
                     <div class="input-group input-spinner">
                       <button class="btn btn-icon btn-light" type="button">
                         <svg
@@ -290,61 +286,61 @@ function SingleProduct() {
         </div>
       </section>
 
-      {/* <section class="padding-y bg-light border-top">
+      <section class="padding-y bg-light border-top">
         <div class="container">
           <div class="row">
             <div class="col-lg-8">
               <div class="card">
                 <header class="card-header">
                   <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item"> */}
-      {/* <a
+                    <li class="nav-item">
+                      <a
                         href="#"
                         data-bs-target="#tab_specs"
                         data-bs-toggle="tab"
                         class="nav-link active"
                       >
                         Specification
-                      </a> */}
-      {/* </li> */}
-      {/* <li class="nav-item"> */}
-      {/* <a
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
                         href="#"
                         data-bs-target="#tab_warranty"
                         data-bs-toggle="tab"
                         class="nav-link"
                       >
                         Warranty info
-                      </a> */}
-      {/* </li> */}
-      {/* <li class="nav-item"> */}
-      {/* <a
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
                         href="#"
                         data-bs-target="#tab_shipping"
                         data-bs-toggle="tab"
                         class="nav-link"
                       >
                         Shipping info
-                      </a> */}
-      {/* </li> */}
-      {/* <li class="nav-item"> */}
-      {/* <a
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
                         href="#"
                         data-bs-target="#tab_seller"
                         data-bs-toggle="tab"
                         class="nav-link"
                       >
                         Seller profile
-                      </a> */}
-      {/* </li>
+                      </a>
+                    </li>
                   </ul>
-                </header> */}
-      {/* <div class="tab-content">
+                </header>
+                <div class="tab-content">
                   <article
                     id="tab_specs"
                     class="tab-pane show active card-body"
-                  > */}
-      {/* <p>
+                  >
+                    <p>
                       With supporting text below as a natural lead-in to
                       additional content. Lorem ipsum dolor sit amet,
                       consectetur adipisicing elit, sed do eiusmod tempor
@@ -353,8 +349,8 @@ function SingleProduct() {
                       nisi ut aliquip ex ea commodo consequat. Duis aute irure
                       dolor in reprehenderit in voluptate velit esse cillum
                       dolore eu fugiat nulla pariatur.{" "}
-                    </p> */}
-      {/* <ul class="list-check cols-two">
+                    </p>
+                    <ul class="list-check cols-two">
                       <li>Some great feature name here </li>
                       <li>Lorem ipsum dolor sit amet, consectetur </li>
                       <li>Duis aute irure dolor in reprehenderit </li>
@@ -362,8 +358,8 @@ function SingleProduct() {
                       <li>Easy fast and ver good </li>
                       <li>Some great feature name here </li>
                       <li>Modern style and design</li>
-                    </ul> */}
-      {/* <table class="table border table-hover">
+                    </ul>
+                    <table class="table border table-hover">
                       <tr>
                         <th> Display: </th>{" "}
                         <td> 13.3-inch LED-backlit display with IPS </td>
@@ -383,9 +379,9 @@ function SingleProduct() {
                         <th> Graphics </th>{" "}
                         <td> Intel Iris Plus Graphics 640 </td>
                       </tr>
-                    </table> */}
-      {/* </article> */}
-      {/* <article id="tab_warranty" class="tab-pane card-body">
+                    </table>
+                  </article>
+                  <article id="tab_warranty" class="tab-pane card-body">
                     Tab content or sample information now <br />
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -399,8 +395,8 @@ function SingleProduct() {
                     incididunt ut labore et dolore magna aliqua. Ut enim ad
                     minim veniam, quis nostrud exercitation ullamco laboris nisi
                     ut aliquip ex ea commodo
-                  </article> */}
-      {/* <article id="tab_shipping" class="tab-pane card-body">
+                  </article>
+                  <article id="tab_shipping" class="tab-pane card-body">
                     Another tab content or sample information now <br />
                     Dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -410,8 +406,8 @@ function SingleProduct() {
                     eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
                     non proident, sunt in culpa qui officia deserunt mollit anim
                     id est laborum.
-                  </article> */}
-      {/* <article id="tab_seller" class="tab-pane card-body">
+                  </article>
+                  <article id="tab_seller" class="tab-pane card-body">
                     Some other tab content or sample information now <br />
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -421,95 +417,95 @@ function SingleProduct() {
                     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
                     occaecat cupidatat non proident, sunt in culpa qui officia
                     deserunt mollit anim id est laborum.
-                  </article> */}
-      {/* </div>
+                  </article>
+                </div>
               </div>
             </div>
             <aside class="col-lg-4">
               <div class="card">
-                <div class="card-body"> */}
-      {/* <h5 class="card-title">Other items you may like : </h5> */}
+                <div class="card-body">
+                  <h5 class="card-title">Other items you may like : </h5>
 
-      {/* <article class="itemside mb-3"> */}
-      {/* <a href="#" class="aside">
+                  <article class="itemside mb-3">
+                    <a href="#" class="aside">
                       <img
                         src="https://godashsports.com/wp-content/uploads/cache/2023/10/On-Cloud-Shoes-Black/3077995554.png"
                         width="96"
                         height="96"
                         class="img-md img-thumbnail"
-                      /> */}
-      {/* </a> */}
-      {/* <div class="info">
+                      />
+                    </a>
+                    <div class="info">
                       <a href="#" class="title mb-1">
                         {" "}
                         Rucksack Backpack Large <br /> Line Mounts{" "}
                       </a>
                       <strong class="price"> $38.90</strong>
-                    </div> */}
-      {/* </article> */}
+                    </div>
+                  </article>
 
-      {/* <article class="itemside mb-3"> */}
-      {/* <a href="#" class="aside">
+                  <article class="itemside mb-3">
+                    <a href="#" class="aside">
                       <img
                         src="https://5.imimg.com/data5/SELLER/Default/2022/3/AT/JU/NS/145847198/shopee-e15830dd985a18d205c34a5fc3119e1a.jpg"
                         width="96"
                         height="96"
                         class="img-md img-thumbnail"
                       />
-                    </a> */}
-      {/* <div class="info">
+                    </a>
+                    <div class="info">
                       <a href="#" class="title mb-1">
                         {" "}
                         Summer New Men's Denim <br /> Jeans Shorts{" "}
                       </a>
                       <strong class="price"> $29.50</strong>
-                    </div> */}
-      {/* </article> */}
+                    </div>
+                  </article>
 
-      {/* <article class="itemside mb-3"> */}
-      {/* <a href="#" class="aside">
+                  <article class="itemside mb-3">
+                    <a href="#" class="aside">
                       <img
                         src="https://d2j6dbq0eux0bg.cloudfront.net/images/50694034/2123451926.jpg"
                         width="96"
                         height="96"
                         class="img-md img-thumbnail"
-                      /> */}
-      {/* </a> */}
-      {/* <div class="info">
+                      />
+                    </a>
+                    <div class="info">
                       <a href="#" class="title mb-1">
                         {" "}
                         T-shirts with multiple colors, for men and lady{" "}
                       </a>
                       <strong class="price"> $120.00</strong>
-                    </div> */}
-      {/* </article> */}
+                    </div>
+                  </article>
 
-      {/* <article class="itemside mb-3"> */}
-      {/* <a href="#" class="aside">
+                  <article class="itemside mb-3">
+                    <a href="#" class="aside">
                       <img
                         src="https://d2j6dbq0eux0bg.cloudfront.net/images/50694034/2123437421.jpg"
                         width="96"
                         height="96"
                         class="img-md img-thumbnail"
                       />
-                    </a> */}
-      {/* <div class="info">
+                    </a>
+                    <div class="info">
                       <a href="#" class="title mb-1">
                         {" "}
                         Blazer Suit Dress Jacket for Men, Blue color{" "}
                       </a>
                       <strong class="price"> $339.90</strong>
-                    </div> */}
-      {/* </article> */}
-      {/* </div> */}
-      {/* // </div> */}
-      {/* // </aside> */}
-      {/* // </div> */}
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </aside>
+          </div>
 
-      {/* // <br /> */}
-      {/* // <br /> */}
-      {/* // </div> */}
-      {/* // </section> */}
+          <br />
+          <br />
+        </div>
+      </section>
     </div>
   );
 }
