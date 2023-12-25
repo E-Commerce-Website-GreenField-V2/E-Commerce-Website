@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
+import { useContext } from "react";
+import { SearchContext } from "../../../Context/SearchContext";
 
 const Form = ({ setResults }) => {
+  const [searchInput, setSearchInput] = useState("");
+  const [products, setProducts] = useState([]);
+  const searchContext = useContext(SearchContext);
   const [input, setInput] = useState("");
-
-  useEffect(() => {
-    fetchData(input);
-  }, [input, setResults]);
-
+  const navigate = useNavigate();
   const fetchData = (value) => {
     fetch("http://localhost:8000/products")
       .then((response) => response.json())
@@ -23,17 +25,13 @@ const Form = ({ setResults }) => {
           );
         });
         console.log("1", results);
-        if (typeof setResults === "function") {
-          setResults(results);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
+        setResults(results);
       });
   };
 
   const handleChange = (value) => {
     setInput(value);
+    fetchData(value);
   };
 
   return (
