@@ -12,11 +12,11 @@ const WishItemsProvider = (props) => {
   };
 
   const addToWishHnadler = (item) => {
-    const { id, name, price, image, category, size } = item;
+    const { id, name, price, image } = item;
     removeFromWishHandler(item);
     setWishItems((prevItems) => [
       ...prevItems,
-      { id, name, price, image, category, size, itemQuantity: 1 },
+      { id, name, price, image, itemQuantity: 1 },
     ]);
   };
 

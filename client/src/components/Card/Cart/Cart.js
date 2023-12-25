@@ -34,6 +34,7 @@ const Cart = () => {
   const handleCheckoutClose = () => setOpenCheckoutModal(false);
 
   const cartItems = useContext(CartItemsContext);
+  console.log("cart",cartItems);
 
   const handleCheckout = async () => {
     if (cartItems.totalAmount > 0) {
