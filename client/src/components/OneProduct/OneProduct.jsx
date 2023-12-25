@@ -1,17 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import "../OneProduct/oneProduct.css";
 function SingleProduct() {
-  // const [images, setImages] = useState({
-  //   img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  //   img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  //   img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  //   img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  // });
+  const [images, setImages] = useState({
+    img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+    img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+    img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+    img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+  });
+
+  const [activeImg, setActiveImage] = useState(images.img1);
+
+  const imgRef = useRef(null);
 
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  const [id, setId] = useState("");
-  const [activeImg, setActiveImage] = useState(product.image);
+  const [id, setId] = useState(1);
 
   useEffect(() => {
     const fetchProductDetails = async (ProductId) => {
@@ -24,8 +27,7 @@ function SingleProduct() {
         }
         const responseData = await response.json();
         setProduct(responseData);
-        setId(59);
-        console.log(responseData);
+        setId(1);
       } catch (error) {
         console.error(error);
       }
@@ -82,7 +84,7 @@ function SingleProduct() {
                     data-type="image"
                     // href="assets/images/items/10.webp"
                   >
-                    <img height="560" src={product.image} />
+                    <img ref={imgRef} height="560" src={product.image} />
                   </a>
                 </div>
                 <div class="thumbs-wrap">
@@ -95,8 +97,8 @@ function SingleProduct() {
                     <img
                       width="60"
                       height="60"
-                      src={product.img1}
-                      onClick={() => setActiveImage(product.img1)}
+                      src={images.img1}
+                      onClick={() => setActiveImage(images.img1)}
                     />
                   </a>
                   <a
@@ -108,8 +110,8 @@ function SingleProduct() {
                     <img
                       width="60"
                       height="60"
-                      src={product.img2}
-                      onClick={() => setActiveImage(product.img2)}
+                      src={images.img2}
+                      onClick={() => setActiveImage(images.img2)}
                     />
                   </a>
                   <a
@@ -121,8 +123,8 @@ function SingleProduct() {
                     <img
                       width="60"
                       height="60"
-                      src={product.img3}
-                      onClick={() => setActiveImage(product.img3)}
+                      src={images.img3}
+                      onClick={() => setActiveImage(images.img3)}
                     />
                   </a>
                   <a
@@ -134,8 +136,8 @@ function SingleProduct() {
                     <img
                       width="60"
                       height="60"
-                      src={product.img4}
-                      onClick={() => setActiveImage(product.img4)}
+                      src={images.img4}
+                      onClick={() => setActiveImage(images.img4)}
                     />
                   </a>
                   <a
@@ -176,10 +178,7 @@ function SingleProduct() {
                       />{" "}
                     </li>
                   </ul>
-                  <b class="label-rating text-warning">
-                    {" "}
-                    Rate : {product.rate}
-                  </b>
+                  <b class="label-rating text-warning"> 4.5</b>
                   <i class="dot"></i>
                   <span class="label-rating text-muted">
                     {" "}
@@ -190,11 +189,16 @@ function SingleProduct() {
                 </div>
 
                 <div class="mb-3">
-                  <var class="price h5"> price : {product.price} $</var>
-                  <span class="text-muted"> /per box</span>
+                  <var class="price h5">$75.00</var>
+                  <span class="text-muted">/per box</span>
                 </div>
 
-                <p>{product.description}</p>
+                <p>
+                  Modern look and quality demo item is a streetwear-inspired
+                  collection that continues to break away from the conventions
+                  of mainstream fashion. Made in Italy, these black and brown
+                  clothing low-top shirts for men.
+                </p>
 
                 <dl class="row">
                   <dt class="col-3">Type:</dt>
@@ -222,7 +226,7 @@ function SingleProduct() {
                     </select>
                   </div>
                   <div class="col-md-4 col-6 mb-3">
-                    <label class="form-label d-block">{product.quantity}</label>
+                    <label class="form-label d-block">Quantity</label>
                     <div class="input-group input-spinner">
                       <button class="btn btn-icon btn-light" type="button">
                         <svg
@@ -259,7 +263,7 @@ function SingleProduct() {
                   {" "}
                   Buy now{" "}
                 </a>
-                <a href="#" class="btn  btn-primary" onClick={handleAddToCart}>
+                <a href="#" class="btn  btn-primary">
                   {" "}
                   <i class="me-1 fa fa-shopping-basket"></i> Add to cart{" "}
                 </a>
@@ -449,7 +453,7 @@ function SingleProduct() {
                     </div>
                   </article>
 
-                  <article class="itemside mb-3">
+                  <article className="itemside mb-3">
                     <a href="#" class="aside">
                       <img
                         src="https://d2j6dbq0eux0bg.cloudfront.net/images/50694034/2123451926.jpg"
@@ -468,7 +472,7 @@ function SingleProduct() {
                   </article>
 
                   <article class="itemside mb-3">
-                    <a href="#" class="aside">
+                    <a href="#!" class="aside">
                       <img
                         src="https://d2j6dbq0eux0bg.cloudfront.net/images/50694034/2123437421.jpg"
                         width="96"
