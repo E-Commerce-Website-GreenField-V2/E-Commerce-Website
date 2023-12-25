@@ -5,8 +5,7 @@ function Cloudinary({ setImages }) {
   const cloudName = "dubduh12x";
   const presetName = "qncgi1tt";
   const [previewImages, setPreviewImages] = useState([]);
-  const [imageUrls, setImageUrls] = useState([]);
-  console.log(imageUrls,'imageUrls');
+
   const handleUpload = async (e) => {
     const files = e.target.files;
 
@@ -31,8 +30,6 @@ function Cloudinary({ setImages }) {
       );
 
       setPreviewImages((prevImages) => [...prevImages, ...uploadedImages]);
-      setImageUrls((prevUrls) => [...prevUrls, ...uploadedImages]);
-
       setImages((prevImages) => [...prevImages, ...uploadedImages]);
     } catch (error) {
       console.error("Error uploading images: ", error);
