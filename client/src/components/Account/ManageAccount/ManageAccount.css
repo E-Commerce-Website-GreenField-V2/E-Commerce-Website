@@ -6,10 +6,6 @@
   margin-top: 20px;
 }
 
-.edit__account {
-  display: flex;
-}
-
 /* Edit Account Container */
 .edit__account__container {
   width: 100%;
@@ -32,7 +28,6 @@
 
 .edit__account__form__container {
   width: 100%;
-  display: flex;
 }
 
 .edit__account__form {

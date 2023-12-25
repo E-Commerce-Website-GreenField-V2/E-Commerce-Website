@@ -1,23 +1,69 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useUserId } from "../../Context/userContext.js";
-import './AddProduct.css';
+import "./AddProduct.css";
+import Cloudinary from "../Cloudinary.jsx";
 
 const AddProduct = () => {
+  const cloudName = "dubduh12x";
+  const presetName = "qncgi1tt";
+  const [imageUrls, setImageUrls] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
+  const handleUpload = async (e) => {
+    const files = e.target.files;
+
+    try {
+      const uploadedImages = await Promise.all(
+        Array.from(files).map(async (file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("upload_preset", presetName);
+
+          const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          const data = await response.json();
+          return data.secure_url;
+        })
+      );
+
+      setPreviewImages((prevImages) => [...prevImages, ...uploadedImages]);
+      setImageUrls((prevUrls) => [...prevUrls, ...uploadedImages]);
+
+      handleImageUpload((prevImages) => [...prevImages, ...uploadedImages]);
+    } catch (error) {
+      console.error("Error uploading images: ", error);
+    }
+  };
+
+  console.log(imageUrls, "qqqqqqqqqqqqqqqqqqq");
   const { userId } = useUserId();
-  console.log("id",userId);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  console.log("id", userId);
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   const [productData, setProductData] = useState({
-    name: '',
-    price: '',
-    imageUrl: '',
-    description: '',
-    availability: 1,
-    quantity: '',
-    rate: 0,
-    sellerProduct: userId, 
+    name: "",
+    price: "",
+    imageUrl: "",
+    description: "",
+    quantity: "",
+    sellerProduct: userId,
   });
+
+  const handleImageUpload = (uploadedImages) => {
+    console.log(uploadedImages, "1111111111");
+    setProductData((prevData) => ({
+      ...prevData,
+      imageUrl: uploadedImages[0],
+    }));
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,43 +73,38 @@ const AddProduct = () => {
     }));
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setProductData((prevData) => ({
-        ...prevData,
-        image: reader.result,
-      }));
-    };
-    
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
   const handleAddProduct = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/products/', productData);
+      // Ensure the image URL is set before making the API call
+      if (!productData.imageUrl && imageUrls.length > 0) {
+        setProductData((prevData) => ({
+          ...prevData,
+          imageUrl: imageUrls[0],
+        }));
+      }
 
-      console.log('res', response.data);
+      const response = await axios.post(
+        "http://localhost:8000/products/",
+        productData
+      );
+
+      console.log("res", response.data);
 
       if (response.data) {
-        setSuccessMessage('Product added successfully!');
-        setErrorMessage('');
+        setSuccessMessage("Product added successfully!");
+        setErrorMessage("");
       } else {
-        setSuccessMessage('');
-        setErrorMessage('Failed to add product. Please try again.');
+        setSuccessMessage("");
+        setErrorMessage("Failed to add product. Please try again.");
       }
     } catch (error) {
-      setSuccessMessage('');
-      setErrorMessage('Error during product addition. Please try again.');
-      console.error('Error during product addition:', error);
+      setSuccessMessage("");
+      setErrorMessage("Error during product addition. Please try again.");
+      console.error("Error during product addition:", error);
     }
   };
-
   return (
     <div className="add-product__card__container">
       <div className="add-product__card">
@@ -96,17 +137,13 @@ const AddProduct = () => {
             </div>
             <div className="image__input__container add-product__input__container">
               <label className="image__label input__label">Image</label>
-              <input
-                name="image"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="image__input add-product__input"
-                required
-              />
+              {/* Cloudinary component for image uploads */}
+              <Cloudinary setImages={handleImageUpload} />
             </div>
             <div className="description__input__container add-product__input__container">
-              <label className="description__label input__label">Description</label>
+              <label className="description__label input__label">
+                Description
+              </label>
               <textarea
                 name="description"
                 value={productData.description}
@@ -133,13 +170,15 @@ const AddProduct = () => {
             </div>
           </div>
         </form>
-        {errorMessage && <div className="add-product__error-message">{errorMessage}</div>}
-        {successMessage && <div className="add-product__success-message">{successMessage}</div>}
+        {errorMessage && (
+          <div className="add-product__error-message">{errorMessage}</div>
+        )}
+        {successMessage && (
+          <div className="add-product__success-message">{successMessage}</div>
+        )}
       </div>
     </div>
   );
 };
 
 export default AddProduct;
-
-

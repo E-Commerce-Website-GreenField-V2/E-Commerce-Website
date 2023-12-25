@@ -2,13 +2,11 @@ import "./Controls.css";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Badge from "@mui/material/Badge";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Cart from "../../Card/Cart/Cart";
-
-import { useUserId } from "../../../Context/userContext";
-
+import { useContext } from "react";
 import { WishItemsContext } from "../../../Context/WishItemsContext";
+import { useUserId } from "../../../Context/userContext";
 
 const Control = () => {
   const wishItems = useContext(WishItemsContext);

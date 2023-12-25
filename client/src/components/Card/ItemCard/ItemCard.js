@@ -12,7 +12,7 @@ const ItemCard = ({ product }) => {
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
   //props.id = category .id
-  console.log('product',product);
+  console.log("product", product);
 
   // const getProduct
 
@@ -34,7 +34,6 @@ const ItemCard = ({ product }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-      
           {product.image && product.image.length > 0 && (
             <img src={product.image} alt="item" className="product__img" />
           )}

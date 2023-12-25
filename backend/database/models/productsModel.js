@@ -12,8 +12,8 @@ const Product = sequelize.define("Product", {
     allowNull: false,
   },
   image: {
-    type: DataTypes.TEXT("long"),
-    allowNull: false,
+    type: DataTypes.JSON,
+    allowNull: true,
   },
   description: {
     type: DataTypes.TEXT("long"),
