@@ -5,92 +5,45 @@ import "./AddProduct.css";
 import Cloudinary from "../Cloudinary.jsx";
 
 const AddProduct = () => {
-  const cloudName = "dubduh12x";
-  const presetName = "qncgi1tt";
-  const [imageUrls, setImageUrls] = useState([]);
-  const [previewImages, setPreviewImages] = useState([]);
-  const handleUpload = async (e) => {
-    const files = e.target.files;
-
-    try {
-      const uploadedImages = await Promise.all(
-        Array.from(files).map(async (file) => {
-          const formData = new FormData();
-          formData.append("file", file);
-          formData.append("upload_preset", presetName);
-
-          const response = await fetch(
-            `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-            {
-              method: "POST",
-              body: formData,
-            }
-          );
-
-          const data = await response.json();
-          return data.secure_url;
-        })
-      );
-
-      setPreviewImages((prevImages) => [...prevImages, ...uploadedImages]);
-      setImageUrls((prevUrls) => [...prevUrls, ...uploadedImages]);
-
-      handleImageUpload((prevImages) => [...prevImages, ...uploadedImages]);
-    } catch (error) {
-      console.error("Error uploading images: ", error);
-    }
-  };
-
-  console.log(imageUrls, "qqqqqqqqqqqqqqqqqqq");
+  const [imageUrls, setImageUrls] = useState("");
   const { userId } = useUserId();
-  console.log("id", userId);
-
+  console.log(imageUrls[0], "imageUrls");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const [productData, setProductData] = useState({
     name: "",
     price: "",
-    imageUrl: "",
+    image: imageUrls[0],
     description: "",
     quantity: "",
     sellerProduct: userId,
   });
 
-  const handleImageUpload = (uploadedImages) => {
-    console.log(uploadedImages, "1111111111");
-    setProductData((prevData) => ({
-      ...prevData,
-      imageUrl: uploadedImages[0],
-    }));
-  };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setProductData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+    console.log(productData);
   };
 
   const handleAddProduct = async (event) => {
     event.preventDefault();
 
     try {
-      // Ensure the image URL is set before making the API call
-      if (!productData.imageUrl && imageUrls.length > 0) {
+      if (!productData.image) {
         setProductData((prevData) => ({
           ...prevData,
-          imageUrl: imageUrls[0],
+          image: imageUrls[0],
         }));
       }
-
       const response = await axios.post(
         "http://localhost:8000/products/",
         productData
       );
-
-      console.log("res", response.data);
 
       if (response.data) {
         setSuccessMessage("Product added successfully!");
@@ -137,8 +90,7 @@ const AddProduct = () => {
             </div>
             <div className="image__input__container add-product__input__container">
               <label className="image__label input__label">Image</label>
-              {/* Cloudinary component for image uploads */}
-              <Cloudinary setImages={handleImageUpload} />
+              <Cloudinary setImageUrls={setProductData} />
             </div>
             <div className="description__input__container add-product__input__container">
               <label className="description__label input__label">

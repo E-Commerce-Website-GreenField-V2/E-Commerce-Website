@@ -32,6 +32,8 @@ const ItemCard = ({ product }) => {
     navigate(`/singleProduct/${product.id}`);
   };
 
+  console.log(product);
+
   return (
     <div className="product__card__card">
       <div className="product__card">
@@ -42,7 +44,11 @@ const ItemCard = ({ product }) => {
           onClick={handleNavigate}
         >
           {product.image && product.image.length > 0 && (
-            <img src={product.image} alt="item" className="product__img" />
+            <img
+              src={product.image.slice(1, product.image.length - 1)}
+              alt="item"
+              className="product__img"
+            />
           )}
         </div>
         <div className="product__card__detail">

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
-function Cloudinary() {
+function Cloudinary({ setImageUrls }) {
   const cloudName = "dubduh12x";
   const presetName = "qncgi1tt";
   const [previewImages, setPreviewImages] = useState([]);
-  const [imageUrls, setImageUrls] = useState([]);
-  console.log(imageUrls, "imageUrls");
 
   const handleUpload = async (e) => {
     const files = e.target.files;
@@ -30,11 +28,13 @@ function Cloudinary() {
           return data.secure_url;
         })
       );
-
-      setPreviewImages((prevImages) => [...prevImages, ...uploadedImages]);
-      setImageUrls((prevUrls) => [...prevUrls, ...uploadedImages]);
-
-      imageUrls((prevImages) => [...prevImages, ...uploadedImages]);
+      console.log(uploadedImages, "uploadedImages");
+      setPreviewImages(uploadedImages);
+      setImageUrls((prevData) => ({
+        ...prevData,
+        image: uploadedImages[0],
+      }));
+      console.log(uploadedImages, "uploadedImages");
     } catch (error) {
       console.error("Error uploading images: ", error);
     }
