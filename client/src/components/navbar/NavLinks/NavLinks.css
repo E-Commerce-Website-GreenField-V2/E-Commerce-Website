@@ -26,7 +26,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     position: relative;
-    z-index: 100;
+    z-index: 98;
 }
 
 .bottom__container {

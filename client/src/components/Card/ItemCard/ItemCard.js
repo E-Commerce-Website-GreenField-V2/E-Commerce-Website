@@ -12,7 +12,7 @@ const ItemCard = ({ product }) => {
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
   //props.id = category .id
-  console.log('product',product);
+  console.log("product", product);
 
   // const getProduct
 
@@ -28,8 +28,6 @@ const ItemCard = ({ product }) => {
 
   return (
     <div className="product__card__card">
-    <div className="product__card">
-      <Link to={`/ProductDetails`} className="product__image-link">
       <div className="product__card">
         <div
           className="product__image"

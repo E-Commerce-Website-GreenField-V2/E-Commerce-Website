@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
+function Cloudinary() {
   const cloudName = "dubduh12x";
   const presetName = "qncgi1tt";
   const [previewImages, setPreviewImages] = useState([]);

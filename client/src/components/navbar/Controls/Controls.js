@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 import Cart from "../../Card/Cart/Cart";
 import { useContext } from "react";
 import { WishItemsContext } from "../../../Context/WishItemsContext";
+import { useUserId } from "../../../Context/userContext";
 
 const Control = () => {
   const wishItems = useContext(WishItemsContext);
+  const { userId } = useUserId();
 
   return (
     <div className="control__bar__container">
       <div className="controls__container">
         <div className="control">
-          <Link to="/account/login">
+          <Link to={userId ? "/account/me" : "/account/login"}>
             <PersonOutlineIcon
               color="black"
               size="large"
