@@ -175,7 +175,6 @@ const About = () => {
           </div>
           <div className="frame-parent2">
             <div className="tom-cruise-paren">
-              <div className="tom-cruis">Will Smith</div>
               <div className="founder-chairma">Product Designer</div>
             </div>
             <div className="icon-twitter-paren">
