@@ -21,6 +21,9 @@ const NavLinks = () => {
           <li className="nav-link">
             <Link to="/category/kids">Kids</Link>
           </li>
+          <li className="nav-link">
+            <Link to="/category/babies">Babies</Link>
+          </li>
         </ul>
       </div>
     </nav>

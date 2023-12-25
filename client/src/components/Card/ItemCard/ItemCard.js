@@ -1,18 +1,18 @@
 import "./ItemCard.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartItemsContext } from "../../../Context/CartItemsContext";
 import { IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { WishItemsContext } from "../../../Context/WishItemsContext";
-import axios from "axios";
+import { CartItemsContext } from "../../../Context/CartItemsContext";
 
 const ItemCard = ({product}) => {
   const [isHovered, setIsHovered] = useState(false);
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
   //props.id = category .id
+  console.log('product',product);
 
   // const getProduct
 
@@ -34,7 +34,7 @@ const ItemCard = ({product}) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Check if props.item.image is defined and has at least one element */}
+      
           {product.image && product.image.length > 0 && (
             <img
               src= {product.image}
@@ -45,7 +45,7 @@ const ItemCard = ({product}) => {
         </div>
         <div className="product__card__detail">
           <div className="product__name">
-            {/* <Link to={`/item/${props.item.category}/${props.item._id}`}>
+            {/* <Link to={`/singleProduct`}> // link to one product component
               {product.name}
             </Link> */}
           </div>

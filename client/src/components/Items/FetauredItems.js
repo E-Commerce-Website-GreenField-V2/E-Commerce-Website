@@ -1,23 +1,47 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import ItemCard from "../Card/ItemCard/ItemCard";
 import ReactLoading from "react-loading";
 import "./FeaturedItems.css";
 
-const FeaturedItems = (props) => {
+const FeaturedItems = () => {
+  const [products, setProducts] = useState(null);
+  const [displayedProducts, setDisplayedProducts] = useState(4);// number item of card to display initially
+  const [showAllClicked, setShowAllClicked] = useState(false);
+
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/products/`)
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  console.log("products: ",products);
+
+  const handleShowAll = () => {
+    setDisplayedProducts(products.length);// Set the number of displayed products to the total number of products
+    setShowAllClicked(true)
+  };
+
   return (
     <div className="featured__products__container">
       <div className="featured__products">
         <div className="featured__products__header">
           <h3 className="featured__items__header__big">Featured Items </h3>
-          <Link to="/shop" className="featured__header__small">
-            Show all
-            <ArrowRightAltIcon />
-          </Link>
+          {showAllClicked ? null : (
+            <Link  className="featured__header__small show-all-link" onClick={handleShowAll}>
+              Show all
+              <ArrowRightAltIcon />
+            </Link>
+          )}
         </div>
         <div className="featured__products__header__line"></div>
         <div className="d-flex min-vh-100 w-100 justify-content-center align-items-center m-auto">
-          {!props.items && (
+          {!products ? (
             <ReactLoading
               type="balls"
               color="#6c757d"
@@ -25,17 +49,11 @@ const FeaturedItems = (props) => {
               width={100}
               className="m-auto"
             />
-          )}
-          {props.items && (
+          ) : (
             <div className="featured__products__card__container">
-              <ItemCard item={props.items[0]} category="featured" />
-              <ItemCard item={props.items[4]} category="featured" />
-              <ItemCard item={props.items[10]} category="featured" />
-              <ItemCard item={props.items[20]} category="featured" />
-              <ItemCard item={props.items[16]} category="featured" />
-              <ItemCard item={props.items[5]} category="featured" />
-              <ItemCard item={props.items[13]} category="featured" />
-              <ItemCard item={props.items[23]} category="featured" />
+              {products.slice(0,displayedProducts ).map((product) => (
+                <ItemCard key={product.id} product={product} />
+              ))}
             </div>
           )}
         </div>

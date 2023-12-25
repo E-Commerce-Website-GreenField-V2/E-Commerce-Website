@@ -1,20 +1,16 @@
 import { Fragment, useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Landing from "../components/Landing/Landing";
-import FeaturedItems from "../components/Featured/Items/FetauredItems";
+import FeaturedItems from "../components/Items/FetauredItems.js";
 import FeaturedCategories from "../components/Featured/Categories/FeaturedCategories";
 import { TabTitle } from "../utils/genral.js";
 
 const Home = () => {
-  const [featuredItems, setFeaturedItems] = useState();
+  // const [featuredItems, setFeaturedItems] = useState();
+  // const [categories, setCategories] = useState(null);
   TabTitle("Home");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/items")
-      .then((res) => setFeaturedItems(res.data))
-      .catch((err) => console.log(err));
-
     window.scrollTo(0, 0);
   }, []);
 
@@ -22,7 +18,7 @@ const Home = () => {
     <Fragment>
       <Landing />
       <FeaturedCategories />
-      <FeaturedItems items={featuredItems} />
+      <FeaturedItems />
     </Fragment>
   );
 };

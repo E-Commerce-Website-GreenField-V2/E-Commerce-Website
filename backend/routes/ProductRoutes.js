@@ -9,9 +9,6 @@ router.get("/:sellerProduct", productsController.getProductByseller);
 router.post("/", productsController.createProduct);
 router.put("/:id", productsController.updateProduct);
 router.delete("/:id", productsController.deleteProduct);
-router.get(
-  "/category/:categoryId",
-  productsController.getProductsByCategoryController
-);
+router.get("/category/:categoryId",productsController.getProductsByCategoryController);
 
 module.exports = router;
