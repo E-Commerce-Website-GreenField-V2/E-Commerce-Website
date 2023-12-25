@@ -12,6 +12,41 @@ function SingleProduct() {
 
   const imgRef = useRef(null);
 
+  const [product, setProduct] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const [id, setId] = useState(1);
+
+  useEffect(() => {
+    const fetchProductDetails = async (ProductId) => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/products/${ProductId}`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const responseData = await response.json();
+        setProduct(responseData);
+        setId(1);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchProductDetails(id);
+  }, [id]);
+
+  const handleAddToCart = () => {
+    console.log(`Added ${quantity} ${product.name} to the cart.`);
+  };
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+  const formattedPrice =
+    product.price !== undefined && typeof product.price === "number"
+      ? `$${product.price.toFixed(2)}`
+      : "Invalid Price";
+
   const handleMouseMove = (e) => {
     const imgBox = document.querySelector(".img-big-wrap");
     const x = e.pageX - imgBox.offsetLeft;
@@ -49,7 +84,7 @@ function SingleProduct() {
                     data-type="image"
                     // href="assets/images/items/10.webp"
                   >
-                    <img ref={imgRef} height="560" src={activeImg} />
+                    <img ref={imgRef} height="560" src={product.image} />
                   </a>
                 </div>
                 <div class="thumbs-wrap">

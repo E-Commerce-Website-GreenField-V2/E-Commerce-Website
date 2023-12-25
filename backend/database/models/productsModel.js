@@ -22,7 +22,7 @@ const Product = sequelize.define("Product", {
   available: {
     type: DataTypes.TINYINT,
     allowNull: false,
-    defaultValue: 1, 
+    defaultValue: 1,
   },
   rate: {
     type: DataTypes.INTEGER,
@@ -49,6 +49,18 @@ const Product = sequelize.define("Product", {
       model: User,
       key: "id",
     },
+  },
+  img2: {
+    type: DataTypes.TEXT("long"),
+    allowNull: false,
+  },
+  img3: {
+    type: DataTypes.TEXT("long"),
+    allowNull: false,
+  },
+  img4: {
+    type: DataTypes.TEXT("long"),
+    allowNull: false,
   },
 });
 
