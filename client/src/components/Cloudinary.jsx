@@ -54,7 +54,12 @@ function Cloudinary({ setImageUrls }) {
 
       <div className="preview">
         {previewImages.map((url, index) => (
-          <img key={index} src={url} alt={`Uploaded ${index}`} />
+          <img
+            key={index}
+            src={url}
+            alt={`Uploaded ${index}`}
+            style={{ width: "400px", height: "500px" }}
+          />
         ))}
       </div>
     </div>
