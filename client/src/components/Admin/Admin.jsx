@@ -5,6 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SecurityIcon from "@mui/icons-material/Security";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import { useUserId } from "../../Context/userContext";
+import axios from "axios";
 import {
   randomCreatedDate,
   randomUpdatedDate,
@@ -48,36 +49,45 @@ export default function ColumnTypesGrid() {
   const [products, setProducts] = useState([]);
   const [sellerProduct, setSellerProducts] = useState("");
   const { userId } = useUserId();
-  console.log("amine", userId);
+  console.log("userid", userId);
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:8000/products/${sellerProduct}`
-      );
-      if (response.ok && userId) {
-        const data = await response.json();
-        setProducts(data);
-        console.log(data);
+      if (!userId) {
+        console.error("User ID is not available.");
+        return;
+      }
+
+      const response = await axios.get(`http://localhost:8000/products/`);
+
+      if (response.status === 200) {
+        setProducts(response.data);
       } else {
         throw new Error("Failed to fetch products");
       }
     } catch (error) {
       console.error("Error fetching products:", error);
+      console.log("Error response:", error.response);
     }
   };
+
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [userId]);
+  const deleteProduct = React.useCallback(async (id) => {
+    try {
+      // Delete from the backend
+      await axios.delete(`http://localhost:8000/products/${id}`);
 
-  const deleteProduct = React.useCallback(
-    (id) => () => {
-      setTimeout(() => {
-        setRows((prevRows) => prevRows.filter((row) => row.id !== id));
-      });
-    },
-    []
-  );
+      // Update the UI by removing the product from the state
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== id)
+      );
+    } catch (error) {
+      console.error(`Error deleting product with ID ${id}:`, error);
+      // Handle error scenarios (e.g., show an error message to the user)
+    }
+  }, []);
 
   const toggleAdmin = React.useCallback(
     (id) => () => {
@@ -151,7 +161,7 @@ export default function ColumnTypesGrid() {
           <GridActionsCellItem
             icon={<DeleteIcon />}
             label="Delete"
-            onClick={deleteProduct(params.id)}
+            onClick={() => deleteProduct(params.id)}
           />,
           <GridActionsCellItem
             icon={<SecurityIcon />}
