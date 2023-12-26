@@ -52,15 +52,15 @@ const Product = sequelize.define("Product", {
   },
   img2: {
     type: DataTypes.TEXT("long"),
-    allowNull: true,
+    allowNull: false,
   },
   img3: {
     type: DataTypes.TEXT("long"),
-    allowNull: true,
+    allowNull: false,
   },
   img4: {
     type: DataTypes.TEXT("long"),
-    allowNull: true,
+    allowNull: false,
   },
 });
 

@@ -59,102 +59,76 @@ const AddProduct = () => {
     }
   };
   return (
-    <div>
-      <form
-        className="form"
-        onSubmit={handleAddProduct}
-        style={{ display: "flex", justifyContent: "center" }}
-      >
-        <div className="">
-          <div className="add-product__card">
-            {" "}
+    <div className="add-product__card__container">
+      <div className="add-product__card">
+        <div className="add-product__header">
+          <h1>Add Product</h1>
+        </div>
+        <form onSubmit={handleAddProduct}>
+          <div className="add-product__inputs">
+            <div className="name__input__container add-product__input__container">
+              <label className="name__label input__label">Product Name</label>
+              <input
+                name="name"
+                type="text"
+                value={productData.name}
+                onChange={handleInputChange}
+                className="name__input add-product__input"
+                required
+              />
+            </div>
+            <div className="price__input__container add-product__input__container">
+              <label className="price__label input__label">Price</label>
+              <input
+                name="price"
+                type="number"
+                value={productData.price}
+                onChange={handleInputChange}
+                className="price__input add-product__input"
+                required
+              />
+            </div>
             <div className="image__input__container add-product__input__container">
               <label className="image__label input__label">Image</label>
               <Cloudinary setImageUrls={setProductData} />
             </div>
-          </div>
-        </div>
-        <div className="">
-          <div className="add-product__card">
-            <div className="add-product__header">
-              <h1>Add Product</h1>
+            <div className="description__input__container add-product__input__container">
+              <label className="description__label input__label">
+                Description
+              </label>
+              <textarea
+                name="description"
+                value={productData.description}
+                onChange={handleInputChange}
+                className="description__input add-product__input"
+                required
+              />
             </div>
-
-            <div className="add-product__inputs">
-              <div className="name__input__container add-product__input__container">
-                <label className="name__label input__label">Product Name</label>
-                <input
-                  name="name"
-                  type="text"
-                  value={productData.name}
-                  onChange={handleInputChange}
-                  className="name__input add-product__input"
-                  required
-                />
-              </div>
-              <div className="price__input__container add-product__input__container">
-                <label className="price__label input__label">Price</label>
-                <input
-                  name="price"
-                  type="number"
-                  value={productData.price}
-                  onChange={handleInputChange}
-                  className="price__input add-product__input"
-                  required
-                />
-              </div>
-
-              <div className="description__input__container add-product__input__container">
-                <label className="description__label input__label">
-                  Description
-                </label>
-                <textarea
-                  name="description"
-                  value={productData.description}
-                  onChange={handleInputChange}
-                  className="description__input add-product__input"
-                  required
-                />
-              </div>
-              <div className="description__input__container add-product__input__container">
-                <label className="category">Category</label>
-                <input
-                  name="category"
-                  value={productData.category}
-                  onChange={handleInputChange}
-                  className="description__input add-product__input"
-                  required
-                />
-              </div>
-              <div className="quantity__input__container add-product__input__container">
-                <label className="quantity__label input__label">Quantity</label>
-                <input
-                  name="quantity"
-                  type="number"
-                  value={productData.quantity}
-                  onChange={handleInputChange}
-                  className="quantity__input add-product__input"
-                  required
-                />
-              </div>
-              <div className="add-product__button__container">
-                <button type="submit" className="add-product__button">
-                  Add Product
-                </button>
-              </div>
+            <div className="quantity__input__container add-product__input__container">
+              <label className="quantity__label input__label">Quantity</label>
+              <input
+                name="quantity"
+                type="number"
+                value={productData.quantity}
+                onChange={handleInputChange}
+                className="quantity__input add-product__input"
+                required
+              />
             </div>
-
-            {errorMessage && (
-              <div className="add-product__error-message">{errorMessage}</div>
-            )}
-            {successMessage && (
-              <div className="add-product__success-message">
-                {successMessage}
-              </div>
-            )}
+            <div className="add-product__button__container">
+              <button type="submit" className="add-product__button">
+                Add Product
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+        {errorMessage && (
+          <div className="add-product__error-message">{errorMessage}</div>
+        )}
+        {successMessage && (
+          <div className="add-product__success-message">{successMessage}</div>
+        )}
+      </div>
     </div>
   );
 };

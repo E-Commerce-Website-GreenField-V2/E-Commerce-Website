@@ -172,7 +172,7 @@ export default function ColumnTypesGrid() {
   );
 
   return (
-    <div style={{ height: "100%", width: "100vw" }}>
+    <div style={{ height: 300, width: "100%" }}>
       <DataGrid columns={columns} rows={products} />
     </div>
   );
