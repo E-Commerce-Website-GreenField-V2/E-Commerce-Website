@@ -1,31 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./popup.css";
+
 const SearchResults = ({ results }) => {
+  const popupRef = useRef(null);
+
   if (!results || results.length === 0) {
     return null;
   }
-  console.log(results, "results");
+
   return (
-    <div className="popup">
+    <div className="popup" ref={popupRef}>
       <div className="popup-content">
-        {results?.map((result, i) => {
-          return (
-            <div key={i}>
-              {result.name}
+        {results.map((result, i) => (
+          <div key={i} className="result-item">
+            <p>
               <img
-                src={result.image}
-                alt="hi"
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  objectFit: "cover",
-                  marginRight: "10px",
-                }}
-              />
-              <p>{result.price}Dt</p>
-            </div>
-          );
-        })}
+                src={result.image.slice(1, result.image.length - 1)}
+                alt=""
+              />{" "}
+              {result.name} {result.price}Dt
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
