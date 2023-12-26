@@ -31,6 +31,9 @@ import SearchBar from "../src/components/navbar/SearchBar/SearchBar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchResults from "./components/navbar/SearchBar/SearchResults.jsx";
 import OneProduct from "./components/OneProduct/OneProduct.jsx";
+import Payment from "./components/payment/Payment.jsx";
+import Fail from "./components/payment/Fail.jsx";
+import Success from "./components/Success.jsx";
 
 function App() {
   const [results, setResults] = useState([]);
@@ -50,7 +53,7 @@ function App() {
                   <Route path="addProducts" element={<AddProducts />} />
                   <Route
                     path="/singleProduct/:productId"
-                    element={<OneProduct/>}
+                    element={<OneProduct />}
                   />
 
                   {/* <Route
@@ -92,6 +95,9 @@ function App() {
 
                 <Routes>
                   <Route path="/admin" element={<Admin />} />
+                  <Route path="/payment" element={<Payment />} />
+                  <Route path="/success" element={<Success />} />
+                  <Route path="/fail" element={<Fail />} />
                   <Route path="/ProductDetails" element={<ProductDetails />} />
                 </Routes>
                 <Footer />

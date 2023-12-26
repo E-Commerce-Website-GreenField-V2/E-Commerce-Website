@@ -1,18 +1,16 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CartItemsContext } from "../../Context/CartItemsContext";
 import { WishItemsContext } from "../../Context/WishItemsContext.js";
 import "../OneProduct/oneProduct.css";
-import axios from "axios"
+import axios from "axios";
 
 function SingleProduct() {
-  
   const { productId } = useParams();
 
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  
-
+  const navigate = useNavigate();
 
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
@@ -20,7 +18,9 @@ function SingleProduct() {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/products/${productId}`);
+        const response = await axios.get(
+          `http://127.0.0.1:8000/products/${productId}`
+        );
         setProduct(response.data);
       } catch (error) {
         console.error(error);
@@ -28,7 +28,7 @@ function SingleProduct() {
     };
     fetchProductDetails();
   }, []);
-  
+
   const hanleAddToCart = () => {
     cartItemsContext.addItem(product, 1);
   };
@@ -36,19 +36,16 @@ function SingleProduct() {
     wishItemsContext.addItem(product);
   };
 
-
   if (!product) {
     return <div>Loading...</div>;
   }
 
-const Img = product.image ? product.image.slice(1, -1) : null;
-const [activeImg, setActiveImage] = useState(null);
+  const Img = product.image ? product.image.slice(1, -1) : null;
+  const [activeImg, setActiveImage] = useState(null);
 
-useEffect(() => {
-  setActiveImage(Img);
-
-}, [Img]);
-
+  useEffect(() => {
+    setActiveImage(Img);
+  }, [Img]);
 
   const formattedPrice =
     product.price !== undefined && typeof product.price === "number"
@@ -73,7 +70,9 @@ useEffect(() => {
     const imgBox = document.querySelector(".img-big-wrap");
     imgBox.style.backgroundImage = "none";
   };
-
+  const handleGoPayment = () => {
+    navigate("/payment");
+  };
   return (
     <div className="home-section">
       <section class="padding-y">
@@ -87,10 +86,7 @@ useEffect(() => {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <a
-                    data-fslightbox="mygalley"
-                    data-type="image"
-                  >
+                  <a data-fslightbox="mygalley" data-type="image">
                     <img height="560" src={activeImg} />
                   </a>
                 </div>
@@ -136,9 +132,7 @@ useEffect(() => {
             </aside>
             <main class="col-lg-6">
               <article class="ps-lg-3">
-                <h4 class="title text-dark">
-                  {product.name}
-                </h4>
+                <h4 class="title text-dark">{product.name}</h4>
                 <div class="rating-wrap my-3">
                   <ul class="rating-stars">
                     <li style={{ width: "80%" }} class="stars-active">
@@ -216,7 +210,7 @@ useEffect(() => {
                   </div>
                 </div>
 
-                <a href="#" class="btn  btn-warning">
+                <a href="#" class="btn  btn-warning" onClick={handleGoPayment}>
                   {" "}
                   Buy now{" "}
                 </a>
@@ -241,5 +235,3 @@ useEffect(() => {
   );
 }
 export default SingleProduct;
-
-
