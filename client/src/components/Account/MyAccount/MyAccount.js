@@ -51,7 +51,13 @@ const MyAccount = () => {
       <div className="account__details__container">
         <div className="account__details__header">
           <div className="details__header">Account Details</div>
-          <button className="logout__action" onClick={() => { handleLogout(); console.log("Logout clicked"); }}>
+          <button
+            className="logout__action"
+            onClick={() => {
+              handleLogout();
+              console.log("Logout clicked");
+            }}
+          >
             Logout
           </button>
         </div>
@@ -67,6 +73,9 @@ const MyAccount = () => {
           </div>
           <div className="manage__account__action">
             <Link to="/account/manage">Manage account</Link>
+          </div>
+          <div className="manage__account__action">
+            <Link to="/admin">Admin Dashbord</Link>
           </div>
         </div>
       </div>

@@ -9,8 +9,8 @@ module.exports = {
       app_secret: "aadcdc6f-2f3d-4119-b15d-0640f5d726b4",
       accept_card: "true",
       amount: 7000,
-      success_link: "http://localhost:8000/success",
-      fail_link: "http://localhost:8000/fail",
+      success_link: "http://localhost:3000/success",
+      fail_link: "http://localhost:3000/fail",
       session_timeout_secs: 1200,
       developer_tracking_id: "d811a12c-2638-48c2-8e54-0969af61b176",
     };
@@ -25,7 +25,7 @@ module.exports = {
       body: JSON.stringify(payload),
     })
       .then((response) => response.json())
-      .then((data) => console.log("jjj", data))
+      .then((data) => res.send(data))
       .catch((error) => res.send("Error:", error.message));
   },
   verify: async (req, res) => {

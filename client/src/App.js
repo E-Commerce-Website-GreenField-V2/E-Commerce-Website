@@ -97,8 +97,8 @@ function App() {
                   <Route path="/admin" element={<Admin />} />
                   {/* <Route path="/ProductDetails" element={<ProductDetails />} /> */}
                   <Route path="/payment" element={<Payment />} />
-                  <Route path="/payment/success" element={<Success />} />
-                  <Route path="/payment/fail" element={<Fail />} />
+                  <Route path="/success" element={<Success />} />
+                  <Route path="/fail" element={<Fail />} />
                 </Routes>
                 <Footer />
               </Router>

@@ -12,43 +12,33 @@ const Payment = () => {
   };
   const onsubmit = (e) => {
     e.preventDefault();
+    console.log("clicked");
     axios
       .post("http://localhost:8000/payment/pay", form)
       .then((res) => {
-        console.log(res.data);
+        console.log("eee");
         const { result } = res.data;
         window.location.href = result.link;
       })
+
       .catch((err) => console.log(err));
   };
   console.log(form);
-
-  //   const handleInputChange = (e) => {
-  //     const { name, value } = e.target;
-  //     setFormData({
-  //       ...formData,
-  //       [name]: value,
-  //     });
-  //   };
-
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     // Process the form data or perform validation
-  //     console.log(form);
-  //   };
 
   return (
     <div>
       <div className="p-4">
         <h2>Amount</h2>
-        <form className="m-4" onSubmit={onsubmit}>
+        <form className="m-4">
           <input
             type="text"
             name="amount"
             className="form-control"
             onChange={handleChange}
           />
-          <button className="btn btn-primary mt-4">Submit and continue</button>
+          <button className="btn btn-primary mt-4" onClick={onsubmit}>
+            Submit and continue
+          </button>
         </form>
       </div>
     </div>

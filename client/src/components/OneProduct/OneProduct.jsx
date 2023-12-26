@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CartItemsContext } from "../../Context/CartItemsContext";
 import { WishItemsContext } from "../../Context/WishItemsContext.js";
 import "../OneProduct/oneProduct.css";
@@ -17,6 +17,7 @@ function SingleProduct() {
   const [activeImg, setActiveImage] = useState(product.image);
   const cartItemsContext = useContext(CartItemsContext);
   const wishItemsContext = useContext(WishItemsContext);
+  const navigate = useContext();
   const hanleAddToCart = () => {
     cartItemsContext.addItem(product, 1);
     // console.log(props.item);
@@ -72,6 +73,9 @@ function SingleProduct() {
   const handleMouseLeave = () => {
     const imgBox = document.querySelector(".img-big-wrap");
     imgBox.style.backgroundImage = "none";
+  };
+  const handleGoPayment = () => {
+    navigate("/payment");
   };
 
   return (
@@ -268,7 +272,7 @@ function SingleProduct() {
                   </div>
                 </div>
 
-                <a href="#" class="btn  btn-warning">
+                <a href="#" class="btn  btn-warning" onClick={handleGoPayment}>
                   {" "}
                   Buy now{" "}
                 </a>
