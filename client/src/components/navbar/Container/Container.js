@@ -18,6 +18,7 @@ const Navtop = () => {
           <SearchResults results={results} />
         </div>
         <div className="control__bar">
+          sss
           <Control />
         </div>
         <div className="drawer">
